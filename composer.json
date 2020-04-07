@@ -13,12 +13,12 @@
         "symfony/framework-bundle": "5.0.*",
         "symfony/http-foundation": "5.0.*",
         "symfony/monolog-bundle": "^3.5",
-        "symfony/orm-pack": "^1.0",
         "symfony/twig-pack": "^1.0",
         "symfony/yaml": "5.0.*"
     },
     "require-dev": {
         "symfony/maker-bundle": "^1.15",
+        "symfony/orm-pack": "^1.0",
         "symfony/web-server-bundle": "^4.4.2"
     },
     "config": {
