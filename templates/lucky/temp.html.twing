@@ -8,15 +8,15 @@
 <body>
 {%block title%}  {% endblock %}
 
-
+<div class="container-xl">
 {% block content %}
 
-<div class="container-xl">
 
 
-</div>
+
+
 {% endblock %}
-
+</div>
 
 
 </body>

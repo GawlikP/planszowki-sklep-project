@@ -1,4 +1,4 @@
-{% extends 'temp.html.twing' %}
+{% extends 'temp.html.twig' %}
 
 {% block content %}
 
