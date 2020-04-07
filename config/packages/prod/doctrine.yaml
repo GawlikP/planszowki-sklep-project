@@ -27,4 +27,4 @@ framework:
                 adapter: cache.app
             doctrine.system_cache_pool:
                 adapter: cache.system
-   secret: '%env(APP_SECRET)%'
+   
