@@ -21,10 +21,10 @@ doctrine:
             pool: doctrine.result_cache_pool
 
 framework:
-  secret: '%env(APP_SECRET)%'
     cache:
         pools:
             doctrine.result_cache_pool:
                 adapter: cache.app
             doctrine.system_cache_pool:
                 adapter: cache.system
+   secret: '%env(APP_SECRET)%'
