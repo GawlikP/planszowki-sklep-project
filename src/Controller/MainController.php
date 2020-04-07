@@ -13,6 +13,13 @@ class MainController extends AbstractController{
 
     return $this->render('main/main.html.twig');
   }
-
+  /**
+  * @Route("/blog",name="main_list")
+  */
+  public function list($id){
+      return this->render('main/main.html.twig'.[
+        'name' => $id,
+      ])
+  }
 
 }

@@ -8,3 +8,7 @@ app_lucky_number:
 app_main_controller:
   path: /
   controller: App\Controller\MainController::main
+app_main_list:
+  path: /list/{id}
+  controller: App\Controller\MainController::list
+  methods: GET|HEAD
