@@ -11,7 +11,7 @@ class MainController extends AbstractController{
   public function main(){
 
 
-    return $this->render('main/main.html.twing');
+    return $this->render('main/main.html.twig');
   }
 
 
