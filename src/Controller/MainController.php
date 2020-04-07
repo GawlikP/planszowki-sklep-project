@@ -18,7 +18,7 @@ class MainController extends AbstractController{
   */
   public function list($id){
       return $this->render('main/main.html.twig',[
-        'name' => $id,
+        'test' => $id,
       ]);
   }
 
