@@ -8,8 +8,8 @@
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="/"><strong>{%block title %}  {% endblock %}</strong></a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color:#12005e;">
+  <a class="navbar-brand" style="background-color:#ad1457;" href="{{path('app_main_controller')}}"><strong>{%block title %}  {% endblock %}</strong></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -20,17 +20,27 @@
         <a class="nav-link" href="/">Strona Główna <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/">Kategorie</a>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+          Kategorie
+          <div class="dropdown-menu btn-info" style="background-color:#78002e;"  aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" style="background-color:#ad1457;" href="#">Strategiczne</a>
+            <a class="dropdown-item" style="background-color:#ad1457;" href="#">Ekonomiczne</a>
+            <a class="dropdown-item" style="background-color:#ad1457;" href="#">Imprezowe</a>
+            <a class="dropdown-item" style="background-color:#ad1457;" href="#">Przygodowe</a>
+            <a class="dropdown-item" style="background-color:#ad1457;" href="#">Logiczne</a>
+            <a class="dropdown-item" style="background-color:#ad1457;" href="#">Dla dzieci</a>
+        </a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" style="background-color:#12005e;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Profil
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Zaloguj</a>
-          <a class="dropdown-item" href="#">Wyloguj</a>
-          <a class="dropdown-item" href="#">Mój koszyk</a>
-          <a class="dropdown-item" href="#">Ustawienia</a>
+        <div class="dropdown-menu" style="background-color:#4a148c;" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" style="background-color:#4a148c;" href="#">Zaloguj</a>
+          <a class="dropdown-item" style="background-color:#4a148c;"  href="#">Wyloguj</a>
+          <a class="dropdown-item" style="background-color:#4a148c;" href="#">Mój koszyk</a>
+          <a class="dropdown-item" style="background-color:#4a148c;" href="#">Ustawienia</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Informacje</a>
         </div>
@@ -39,7 +49,7 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Szukaj</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" style="background-color:#12005e;" type="submit">Szukaj</button>
     </form>
   </div>
 </nav>
