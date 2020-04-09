@@ -40,7 +40,8 @@ class MainController extends AbstractController{
 
       #$id = $request->request->get('id');
       $name = $request->request->get('name');
-      $price = $request->required->get('price');
+      $price = $request->request->get('price');
+      $players = $request->request->get('players');
       $age = $request->request->get('age');
       $company_name = $request->request->get('company_name');
       $category = $request->request->get('category');
@@ -51,7 +52,9 @@ class MainController extends AbstractController{
       $product = new Product();
       $product->setName($name);
       $product->setPrice($price);
+      $product->setPlayers($players);
       $product->setAge($age);
+      $product->setCount(0);
       $product->setCompanyName($company_name);
       $product->setCategory($category);
       $product->setDescription($description);
@@ -59,7 +62,7 @@ class MainController extends AbstractController{
       $entityManager->persist($product);
 
       $entityManager->flush();
-        return $this->redirectToRoute('/');
+        return $this->redirectToRoute('app_main_controller');
   }
 
 }
