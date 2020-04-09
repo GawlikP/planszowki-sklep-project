@@ -41,6 +41,16 @@ class Product
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $company_name;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $count;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +112,30 @@ class Product
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getCompanyName(): ?string
+    {
+        return $this->company_name;
+    }
+
+    public function setCompanyName(string $company_name): self
+    {
+        $this->company_name = $company_name;
+
+        return $this;
+    }
+
+    public function getCount(): ?int
+    {
+        return $this->count;
+    }
+
+    public function setCount(int $count): self
+    {
+        $this->count = $count;
 
         return $this;
     }
