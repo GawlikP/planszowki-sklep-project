@@ -6,4 +6,17 @@
 
 {{test}}
 
+{% for product in products %}
+
+  <div class="jumbotron">
+
+    <h1 class="display-4"> {{product.name}}</h1>
+    <p class="lead">Wiek: {{product.age}}</p>
+    <hr class="my-4">
+    <p> <b>Cena: {{product.price}}</b>  </p>
+  </div>
+
+{% endfor %}
+
+
 {% endblock %}
