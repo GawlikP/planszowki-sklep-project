@@ -14,7 +14,7 @@ class MainController extends AbstractController{
     $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
 
     return $this->render('main/main.html.twig',
-    [ 'test' => '',
+    [ 'test' => '', 'products' => $products,
     ]
     );
   }
