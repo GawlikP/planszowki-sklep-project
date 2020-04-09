@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use Symfony\Component\HttpFundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -34,9 +35,7 @@ class ProductController extends AbstractController
 
       return new Response('Check out this great product'.$product->getName());
     }
-    /**
-     * @Route("/product", name="product")
-     */
+
     public function index()
     {
         return $this->render('product/index.html.twig', [
