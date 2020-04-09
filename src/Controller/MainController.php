@@ -30,7 +30,7 @@ class MainController extends AbstractController{
 
   public function addProduct(){
 
-    return $this->render();
+    return $this->render('product/createform.html.twig');
   }
 
   public function adProduct(RequestStack $requestStack){
