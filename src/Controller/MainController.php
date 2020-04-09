@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Componeny\HttpFoundation\RedirectResponse;
 
 class MainController extends AbstractController{
 
@@ -37,10 +38,28 @@ class MainController extends AbstractController{
 
       $request = $requestStack->getCurrentRequest();
 
-      $var = $request->request->get('id');
+      #$id = $request->request->get('id');
+      $name = $request->request->get('name');
+      $price = $request->required->get('price');
+      $age = $request->request->get('age');
+      $company_name = $request->request->get('company_name');
+      $category = $request->request->get('category');
+      $description = $request->request->get('description');
 
+      $entityManager = $this->getDoctrine()->getManager();
 
-        return new Response('<h1> '.$var.' </h1>');
+      $product = new Product();
+      $product->setName($name);
+      $product->setPrice($price);
+      $product->setAge($age);
+      $product->setCompanyName($company_name);
+      $product->setCategory($category);
+      $product->setDescription($description);
+
+      $entityManager->persist($product);
+
+      $entityManager->flush();
+        return $this->redirectToRoute('/');
   }
 
 }
