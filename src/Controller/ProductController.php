@@ -3,14 +3,17 @@
 namespace App\Controller;
 
 use App\Entity\Product;
-use Symfony\Component\HttpFundation\Response;
+use Doctrine\ORM\EntityManagerInterface;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+
+use Symfony\Component\HttpFoundation\Response;
 
 class ProductController extends AbstractController
 {
 
-    public function createProduct(): Response{
+    public function createProduct(){
       $entityManager = $this->getDoctrine()->getManager();
 
       $product = new Product();
