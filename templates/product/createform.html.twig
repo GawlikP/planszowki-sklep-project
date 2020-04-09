@@ -1,0 +1,36 @@
+{% extends 'main/temp.html.twig' %}
+{% block title %} Product post {% endblock %}
+{% block content %}
+
+<form method="POST" action="product">
+  <div class="form-group">
+  <p>
+    <input type="text" class="form-control" name="name" placeholder="Nazwa produktu"/>
+  </p>
+  <p>
+    <input type="text" class="form-control" name="price" placeholder="Cena produktu"/>
+  </p>
+  <p>
+    <input type="number" class="form-control" name="players" placeholder="Liczba graczy"/>
+  </p>
+  <p>
+    <input type="number" class="form-control" name="age" placeholder="Wiek graczy"/>
+  </p>
+  <p>
+    <input type="text" class="form-control" name="company_name" placeholder="Nazwa producenta"/>
+  </p>
+  <p>
+    <input type="text" class="form-control" name="category" placeholder="Kategoria"/>
+  </p>
+    <div class="form-group">
+      <label for="descpription"> Description </label>
+      <textarea class="form-control" id="descpription" name="description" rows="5">
+      </textarea>
+    </div>
+  </p>
+  <input type="submit" class="btn btn-success" value="Dodaj produkt" />
+  </div>
+</form>
+
+
+{% endblock %}
