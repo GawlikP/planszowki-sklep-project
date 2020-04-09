@@ -12,3 +12,9 @@ app_main_list:
   path: /list/{id}
   controller: App\Controller\MainController::list
   methods: GET|HEAD
+app_product_controller:
+  path: /product
+  controller: App\Controller\ProductController::createProduct
+app_product_show:
+  path: /product/{id}
+  controller: App\Controller\ProductController::show
