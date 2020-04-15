@@ -56,15 +56,24 @@
   </div>
 </nav>
 
-<div class="container-xl">
-{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-lg">
+    {% block content %}
 
 
 
 
 
-{% endblock %}
+    {% endblock %}
+    </div>
+
+  </div>
 </div>
+
 
 
 </body>
