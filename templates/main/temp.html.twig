@@ -45,7 +45,14 @@
     .input-group >input::placeholder{
       color: #111111;
     }
-
+    .dropdown-menu >form >input {
+      background-color: #8d6e63;
+      color: #111111;
+    }
+    .dropdown-menu >form >input::placeholder {
+      background-color: #8d6e63;
+      color: #111111;
+    }
 
 
   </style>
@@ -108,10 +115,10 @@
           </p>
           <p>
           <label for="haslo"><b>Hasło:</b></label>
-          <input type="text" class="form-control" name="haslo" id="haslo"/> 
+          <input type="text" class="form-control" name="haslo" id="haslo"/>
           </p>
 
-          <input type="submit" class="dropdown-item navbar-dark text-light btn btn-success">Zaloguj</a>
+          <input type="submit" value="zaloguj" class="dropdown-item navbar-dark text-light btn btn-success"/>
           </div>
           </form>
         </div>
