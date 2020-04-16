@@ -19,42 +19,37 @@ class Product
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $Name;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
      */
-    private $price;
+    private $Price;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $players;
+    private $Player;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $age;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $description;
+    private $Age;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $company_name;
+    private $Company;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $Descrioption;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $count;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $category;
+    private $Count;
 
     public function getId(): ?int
     {
@@ -63,96 +58,84 @@ class Product
 
     public function getName(): ?string
     {
-        return $this->name;
+        return $this->Name;
     }
 
-    public function setName(string $name): self
+    public function setName(string $Name): self
     {
-        $this->name = $name;
+        $this->Name = $Name;
 
         return $this;
     }
 
     public function getPrice(): ?string
     {
-        return $this->price;
+        return $this->Price;
     }
 
-    public function setPrice(string $price): self
+    public function setPrice(string $Price): self
     {
-        $this->price = $price;
+        $this->Price = $Price;
 
         return $this;
     }
 
-    public function getPlayers(): ?int
+    public function getPlayer(): ?int
     {
-        return $this->players;
+        return $this->Player;
     }
 
-    public function setPlayers(int $players): self
+    public function setPlayer(int $Player): self
     {
-        $this->players = $players;
+        $this->Player = $Player;
 
         return $this;
     }
 
     public function getAge(): ?int
     {
-        return $this->age;
+        return $this->Age;
     }
 
-    public function setAge(int $age): self
+    public function setAge(int $Age): self
     {
-        $this->age = $age;
+        $this->Age = $Age;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getCompany(): ?string
     {
-        return $this->description;
+        return $this->Company;
     }
 
-    public function setDescription(string $description): self
+    public function setCompany(string $Company): self
     {
-        $this->description = $description;
+        $this->Company = $Company;
 
         return $this;
     }
 
-    public function getCompanyName(): ?string
+    public function getDescrioption(): ?string
     {
-        return $this->company_name;
+        return $this->Descrioption;
     }
 
-    public function setCompanyName(string $company_name): self
+    public function setDescrioption(string $Descrioption): self
     {
-        $this->company_name = $company_name;
+        $this->Descrioption = $Descrioption;
 
         return $this;
     }
 
     public function getCount(): ?int
     {
-        return $this->count;
+        return $this->Count;
     }
 
-    public function setCount(int $count): self
+    public function setCount(int $Count): self
     {
-        $this->count = $count;
-
-        return $this;
-    }
-
-    public function getCategory(): ?string
-    {
-        return $this->category;
-    }
-
-    public function setCategory(?string $category): self
-    {
-        $this->category = $category;
+        $this->Count = $Count;
 
         return $this;
     }

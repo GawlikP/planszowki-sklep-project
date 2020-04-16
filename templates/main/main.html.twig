@@ -6,15 +6,21 @@
 
 {% for product in products %}
 
-  <div class="jumbotron" style="background-color:#212121;color:white">
+  <div class="jumbotron " style="background-color:#c63f17;color:white">
 
     <h1 class="display-4"> {{product.name}}</h1>
-    <p class="lead">Wiek od: {{product.age}} | Liczba graczy: {{product.players}} | Producent: {{product.company_name}}</p>
+    <p class="lead">Wiek od: {{product.age}} | Liczba graczy: {{product.players}} |   </p>
     <hr class="my-4">
     <p> <b>Cena: {{product.price}}</b>  </p>
   </div>
 
 {% endfor %}
+
+
+{% endblock %}
+
+{% block filters %}
+
 
 
 {% endblock %}

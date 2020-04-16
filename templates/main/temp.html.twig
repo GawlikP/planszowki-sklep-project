@@ -4,12 +4,58 @@
   <title> Planszowki-sklep</title>
   <meta charset="utf-8"/>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <style>
+    nav{
+        background-color: #4e342e;
+        color: blue;
+    }
+    .nav-link {
+      background-color: #4e342e;
+      color: white;
+    }
+    .nav-item{
+      background-color:#4e342e;
+      color: white;
+    }
+    .dropdown-menu{
+      background-color: #7b5e57;
+      color:white;
+    }
+    .dropdown-item{
+      color: #111111;
+    }
+    .dropdown-item:link{
+      color: #111111;
+    }
+    .dropdown-menu  > a:hover {
+    background-color: #260e04;
+    background-image: none !important;
+    }
+    .input-group > .btn {
+      background-color: #c56000;
+      color:black;
+      width: 100%;
+
+    }
+    .input-group > input {
+      background-color: #8d6e63;
+      color: #111111;
+    }
+    .input-group >input::placeholder{
+      color: #111111;
+    }
+
+
+
+  </style>
+
 </head>
-<body style="background-color:#383838;">
+<body style="background-color:#000000;">
 
 
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#000000;">
-  <a class="navbar-brand btn" style="background-color:#a30011;" href="{{path('app_main_controller')}}"><strong>{%block title %}  {% endblock %}</strong></a>
+<nav class="navbar navbar-expand-lg navbar-dark" >
+  <a class="navbar-brand btn"  href="{{path('app_main_controller')}}"><strong>{%block title %}  {% endblock %}</strong></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -17,51 +63,97 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" style="background-color:#a30011;" href="/">Strona Główna <span class="sr-only">(current)</span></a>
+        <a class="nav-link"  href="/">Strona Główna <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item dropdown" style="background-color:#a30011;">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
+      <li class="nav-item dropdown" >
+        <a class="nav-link dropdown-toggle" style="background-color:##bf360c;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Kategorie
-          <div class="dropdown-menu btn-info" style="background-color:#991000;"  aria-labelledby="navbarDropdown">
-            <a class="dropdown-item navbar-dark" style="background-color:#991000; color:white;" href="#">Strategiczne</a>
-            <a class="dropdown-item navbar-dark" style="background-color:#991000; color:white;" href="#">Ekonomiczne</a>
-            <a class="dropdown-item navbar-dark" style="background-color:#991000; color:white;" href="#">Imprezowe</a>
-            <a class="dropdown-item navbar-dark" style="background-color:#991000; color:white;" href="#">Przygodowe</a>
-            <a class="dropdown-item navbar-dark" style="background-color:#991000; color:white;" href="#">Logiczne</a>
-            <a class="dropdown-item navbar-dark" style="background-color:#991000; color:white;" href="#">Dla dzieci</a>
         </a>
+        <div class="dropdown-menu navbar-dark text-light"   aria-labelledby="navbarDropdown">
+          <a class="dropdown-item navbar-dark text-light"  href="#">Strategiczne</a>
+          <a class="dropdown-item navbar-dark text-light"   href="#">Dla dzieci</a>
+          <a class="dropdown-item navbar-dark text-light"  href="#">Ekonomiczne</a>
+          <a class="dropdown-item navbar-dark text-light"  href="#">Karciane</a>
+          <a class="dropdown-item navbar-dark text-light"  href="#">Rpg</a>
+          <a class="dropdown-item navbar-dark text-light"  href="#">Towarzyskie</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item navbar-dark "  href="#">Informacje</a>
+        </div>
       </li>
-      <li class="nav-item dropdown" style="background-color:#a30011;">
-        <a class="nav-link dropdown-toggle" style="background-color:#a30011;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li class="nav-item dropdown" style="background-color:#bf360c;">
+        <a class="nav-link dropdown-toggle" style="background-color:##bf360c;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Profil
         </a>
-        <div class="dropdown-menu navbar-dark" style="background-color:#991000; color:white;" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item navbar-dark" style="background-color:#991000; color:white;" href="#">Zaloguj</a>
-          <a class="dropdown-item navbar-dark" style="background-color:#991000; color:white;"  href="#">Wyloguj</a>
-          <a class="dropdown-item navbar-dark" style="background-color:#991000; color:white;" href="#">Mój koszyk</a>
-          <a class="dropdown-item navbar-dark" style="background-color:#991000; color:white;" href="#">Ustawienia</a>
+        <div class="dropdown-menu navbar-dark text-light"  aria-labelledby="navbarDropdown">
+          <a class="dropdown-item navbar-dark text-light" href="#">Zaloguj</a>
+          <a class="dropdown-item navbar-dark text-light"   href="#">Wyloguj</a>
+          <a class="dropdown-item navbar-dark text-light"  href="#">Mój koszyk</a>
+          <a class="dropdown-item navbar-dark text-light"  href="#">Ustawienia</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item navbar-dark " style="background-color:white;" href="#">Informacje</a>
+          <a class="dropdown-item navbar-dark "  href="#">Informacje</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="btn" href="{{path('app_product_create')}}" style="background-color:#a30011;" aria-controls="pillsh-home" aria-selected="true">Dodaj Produkt</a>
+        <a class="nav-link" href="{{path('app_product_create')}}"  aria-controls="pillsh-home" aria-selected="true">Dodaj Produkt</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <form class="form-inline my-2 my-lg-0 ">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-warning my-2 my-sm-0" style="background-color:#a30011;" type="submit">Szukaj</button>
+      <button class="btn btn-outline-warning my-2 my-sm-0"  type="submit">Szukaj</button>
     </form>
   </div>
 </nav>
 
-<div class="container">
+<div class="d-flex p-2 ">
   <div class="row">
-    <div class="col-2">
-      One of three columns
+    <div class="col-12" style="background-color:#260e04;">
+      {% block filters %}
+
+    {% endblock %}
+    <form >
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        </div>
+
+      <input type="text" class="form-control" id="product_name" placeholder="Nazwa produktu" aria-label="Example text with button addon" aria-describedby="button-addon1">
+
     </div>
-    <div class="col-8">
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        </div>
+      <input type="number" min="0" max="9999" step=".01"  class="form-control" placeholder="Cena"  aria-describedby="button-addon1">
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        </div>
+      <input type="number" class="form-control" min="0" max="30" placeholder="Liczba graczy" aria-label="Example text with button addon" aria-describedby="button-addon1">
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      </div>
+      <input type="number" class="form-control" min="0" max="18" placeholder="Ograniczenie wiekowe" aria-label="Example text with button addon" aria-describedby="button-addon1">
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        </div>
+      <input type="text text-light" class="form-control" placeholder="Nazwa produktu" aria-label="Example text with button addon" aria-describedby="button-addon1">
+    </div>
+    <div class="input-group mb-3">
+
+    <button class="btn " type="button" id="button-addon1">Szukaj</button>
+
+    </div>
+    </div>
+    </form>
+    </div>
+
+
+
+    <div class="col-10" style="background-color:#260e04;">
     {% block content %}
 
 

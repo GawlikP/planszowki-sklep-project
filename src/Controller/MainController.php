@@ -44,7 +44,7 @@ class MainController extends AbstractController{
       $players = $request->request->get('players');
       $age = $request->request->get('age');
       $company_name = $request->request->get('company_name');
-      $category = $request->request->get('category');
+    #  $category = $request->request->get('category');
       $description = $request->request->get('description');
 
       $entityManager = $this->getDoctrine()->getManager();
@@ -52,12 +52,12 @@ class MainController extends AbstractController{
       $product = new Product();
       $product->setName($name);
       $product->setPrice($price);
-      $product->setPlayers($players);
-      $product->setAge($age);
+    #  $product->setPlayers($players);
+      $product->setAge(3);
       $product->setCount(0);
-      $product->setCompanyName($company_name);
-      $product->setCategory($category);
-      $product->setDescription($description);
+      $product->setCompany($company_name);
+    #  $product->setCategory($category);
+      $product->setDescrioption($description);
 
       $entityManager->persist($product);
 
