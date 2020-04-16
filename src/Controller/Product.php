@@ -17,7 +17,7 @@ class ProductController extends AbstractController{
 
     $entityManager = $this->getDoctrine()->getManager();
 
-    $product = $entityManager->getDoctrine()->getRepository(Product::class)->find($id)
+    $product = $entityManager->getDoctrine()->getRepository(Product::class)->find($id);
 
     if(!$product){
       throw $this->createNotFoundException( 'No product found for id '. $id);
