@@ -13,7 +13,7 @@ app_main_list:
 
 app_product_show:
   path: /product/{id}
-  controller: App\Controller\ProductController::show
+  controller: App\Controller\ProductController::showProduct
 
 app_product_push:
   path: /product
@@ -25,5 +25,5 @@ app_product_create:
   controller: App\Controller\MainController::addProduct
 
 app_product_delete:
-  path: /product/delete/{id}
-  controller: App\Controller\ProductController::deleteProduct
+    path: /product/delete/{id}
+    controller: App\Controller\ProductController::deleteProduct
