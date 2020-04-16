@@ -25,5 +25,6 @@ app_product_create:
   controller: App\Controller\MainController::addProduct
 
 app_product_delete:
+  
     path: /product/delete/{id}
     controller: App\Controller\ProductController::deleteProduct

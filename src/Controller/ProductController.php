@@ -15,24 +15,24 @@ class ProductController extends AbstractController{
 
   public function deleteProduct($id){
 
-    $entityManager = $this->getDoctrine()->getManager();
+    $entityManager = $this->getDoctrine()->getRepository(Product::class);
 
-    $product = $entityManager->getDoctrine()->getRepository(Product::class)->find($id);
+    $product = $entityManager->find($id);
 
     if(!$product){
       throw $this->createNotFoundException( 'No product found for id '. $id);
 
     }
 
-    $entityManager->remove($product);
-    $entityManager->flush();
+    $this->getDoctrine()->getManager()->remove($product);
+    $this->getDoctrine()->getManager()->flush();
 
     return $this->redirectToRoute('app_main_controller');
   }
   public function showProduct($id){
-    $entityManager = $this->getDoctrine()->getManager();
+    $entityManager = $this->getDoctrine();
 
-    $product = $entityManager->getDoctrine()->getRepository(Product::class)->find($id);
+    $product = $entityManager->getRepository(Product::class)->find($id);
 
     if(!$product){
       throw $this->createNotFoundException( 'No product found for id '. $id);
