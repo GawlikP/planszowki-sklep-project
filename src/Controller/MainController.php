@@ -52,8 +52,8 @@ class MainController extends AbstractController{
       $product = new Product();
       $product->setName($name);
       $product->setPrice($price);
-    #  $product->setPlayers($players);
-      $product->setAge(3);
+      $product->setPlayer($players);
+      $product->setAge($age);
       $product->setCount(0);
       $product->setCompany($company_name);
     #  $product->setCategory($category);
