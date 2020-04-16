@@ -85,7 +85,6 @@
           Profil
         </a>
         <div class="dropdown-menu navbar-dark text-light"  aria-labelledby="navbarDropdown">
-          <a class="dropdown-item navbar-dark text-light" href="#">Zaloguj</a>
           <a class="dropdown-item navbar-dark text-light"   href="#">Wyloguj</a>
           <a class="dropdown-item navbar-dark text-light"  href="#">Mój koszyk</a>
           <a class="dropdown-item navbar-dark text-light"  href="#">Ustawienia</a>
@@ -95,6 +94,27 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{path('app_product_create')}}"  aria-controls="pillsh-home" aria-selected="true">Dodaj Produkt</a>
+      </li>
+      <li class="nav-item dropdown" style="background-color:#bf360c;">
+        <a class="nav-link dropdown-toggle" style="background-color:##bf360c;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Zaloguj
+        </a>
+        <div class="dropdown-menu navbar-dark text-light"  aria-labelledby="navbarDropdown">
+          <form>
+          <div clas="form-group">
+          <p>
+          <label for="login"><b>Login:</b></label>
+          <input type="text" class="form-control" name="login" id="login"/>
+          </p>
+          <p>
+          <label for="haslo"><b>Hasło:</b></label>
+          <input type="text" class="form-control" name="haslo" id="haslo"/> 
+          </p>
+
+          <input type="submit" class="dropdown-item navbar-dark text-light btn btn-success">Zaloguj</a>
+          </div>
+          </form>
+        </div>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 ">
