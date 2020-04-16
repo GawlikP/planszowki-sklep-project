@@ -24,5 +24,45 @@
 {% block filters %}
 
 
+<form >
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    </div>
+
+  <input type="text" class="form-control" id="product_name" placeholder="Nazwa produktu" aria-label="Example text with button addon" aria-describedby="button-addon1">
+
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    </div>
+  <input type="number" min="0" max="9999" step=".01"  class="form-control" placeholder="Cena"  aria-describedby="button-addon1">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    </div>
+  <input type="number" class="form-control" min="0" max="30" placeholder="Liczba graczy" aria-label="Example text with button addon" aria-describedby="button-addon1">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+  </div>
+  <input type="number" class="form-control" min="0" max="18" placeholder="Ograniczenie wiekowe" aria-label="Example text with button addon" aria-describedby="button-addon1">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    </div>
+  <input type="text text-light" class="form-control" placeholder="Nazwa produktu" aria-label="Example text with button addon" aria-describedby="button-addon1">
+</div>
+<div class="input-group mb-3">
+
+<button class="btn " type="button" id="button-addon1">Szukaj</button>
+
+</div>
+</div>
+</form>
+
 
 {% endblock %}

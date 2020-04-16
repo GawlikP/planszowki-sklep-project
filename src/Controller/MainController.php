@@ -64,7 +64,9 @@ class MainController extends AbstractController{
       $entityManager->flush();
         return $this->redirectToRoute('app_main_controller');
   }
-
+	public funtion login(){
+		return $this->redner("login/login.html.twig");
+	}
 
 
 }
