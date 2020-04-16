@@ -65,7 +65,7 @@ class MainController extends AbstractController{
         return $this->redirectToRoute('app_main_controller');
   }
 	public function login(){
-		return $this->redner("login/login.html.twig");
+		return $this->redner('login/login.html.twig');
 	}
 
 
