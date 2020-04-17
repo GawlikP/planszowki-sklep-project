@@ -2,8 +2,8 @@
 {% block title %} Product post {% endblock %}
 {% block content %}
 
-<form method="POST" style="width:100%; height:100%;" action="{{path('app_product_push')}}">
-  <div class="form-group">
+<form method="POST"  action="{{path('app_product_push')}}" style="width:100%; height:100%;">
+  <div class="form-group" style="width:100%; height:100%;">
   <p>
     <input type="text" required class="form-control" name="name" placeholder="Nazwa produktu"/>
   </p>
