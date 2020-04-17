@@ -3,14 +3,17 @@
 {% block content %}
 
   <div class="jumbotron" style="width:100%; height:100%;background-color:#c63f17;color:white;">
-  <form>
+  <form action="/register/apply">
   <div class="form-group">
   <h1><b><center> Rejestracja </center></b></h1>
   <p>
-    <input type="text" required class="form-control" name="name" placeholder="Login"/>
+    <input type="text" required class="form-control" name="login" placeholder="Login"/>
   </p>
   <p>
-    <input type="text" required class="form-control" name="price" placeholder="Hasło"/>
+    <input type="text" required class="form-control" name="haslo" placeholder="Hasło"/>
+  </p>
+  <p class="alert alert-danger">
+    {{alert}}
   </p>
   <p>
     <input type="submit" required class="form-control btn btn-success" value="Rejestruj" />
