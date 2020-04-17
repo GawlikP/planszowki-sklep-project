@@ -29,7 +29,7 @@ class UserController extends AbstractController{
       $entityManager->persist($user);
 
       $entityManager->flush();
-      return this->redirectToRoute('app_main_controller');
+      return $this->redirectToRoute('app_main_controller');
 
 
 
