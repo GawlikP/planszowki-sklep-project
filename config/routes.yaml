@@ -40,6 +40,11 @@ app_login_register:
 app_user_show:
   path: /user/{id}
   controller: App\Controller\UserController::show
+
 app_user_tryregister:
   path: /user/register
   controller: App\Controller\UserController::tryRegister
+
+app_info:
+  path: /info
+  controller: App\Controller\MainController::info

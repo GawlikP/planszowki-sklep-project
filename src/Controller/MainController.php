@@ -71,5 +71,8 @@ class MainController extends AbstractController{
     return $this->render('login/register.html.twig');
   }
 
+  public function info(){
+    return $this->render('info/info.html.twig');
+  }
 
 }
