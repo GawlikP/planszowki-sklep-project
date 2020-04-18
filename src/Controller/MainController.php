@@ -68,7 +68,7 @@ class MainController extends AbstractController{
 		return $this->redner('login/login.html.twig');
 	}
   public function register(RequestStack $requestStack){
-    return $this->render('login/register.html.twig', ['alert' => '']);
+    return $this->render('login/register.html.twig');
   }
 
   public function info(RequestStack $requestStack){
