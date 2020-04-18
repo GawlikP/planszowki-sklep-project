@@ -3,11 +3,11 @@
 {% block content %}
 
   <div class="jumbotron" style="width:100%; height:100%;background-color:#c63f17;color:white;">
-  <form action="{{path('app_user_tryregister')}}">
+  <form action="{{path('app_user_tryregister')}}" method="POST">
   <div class="form-group">
   <h1><b><center> Rejestracja </center></b></h1>
   <p>
-    <input type="text" required class="form-control" name="login" placeholder="Login"/>
+    <input type="text" required class="form-control" name="nick" placeholder="Login"/>
   </p>
   <p>
     <input type="text" required class="form-control" name="haslo" placeholder="Hasło"/>

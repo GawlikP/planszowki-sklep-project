@@ -13,7 +13,7 @@ use Symfony\Componeny\HttpFoundation\RedirectResponse;
 
 class MainController extends AbstractController{
 
-  public function main(){
+  public function main(RequestStack $requestStack){
 
     $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
 
@@ -64,14 +64,14 @@ class MainController extends AbstractController{
       $entityManager->flush();
         return $this->redirectToRoute('app_main_controller');
   }
-	public function login(){
+	public function login(RequestStack $requestStack){
 		return $this->redner('login/login.html.twig');
 	}
-  public function register(){
-    return $this->render('login/register.html.twig');
+  public function register(RequestStack $requestStack){
+    return $this->render('login/register.html.twig', ['alert' => '']);
   }
 
-  public function info(){
+  public function info(RequestStack $requestStack){
     return $this->render('info/info.html.twig');
   }
 

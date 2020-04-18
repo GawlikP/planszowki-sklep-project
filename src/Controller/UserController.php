@@ -24,8 +24,9 @@ class UserController extends AbstractController{
       $products = $this->getDoctrine()->getRepository(User::class)->findIfExist($login);
       if(empty($products)){
         $user = new User();
-        $user.setLogin($login);
-        $user.setPassword($password);
+        $user->setNick($login);
+        $user->setPassword($password);
+        $user->setPermission(1);
 
         $entityManager->persist($user);
 
@@ -33,19 +34,9 @@ class UserController extends AbstractController{
         return $this->redirectToRoute('app_main_controller');
       }
       $error = "User Already exist";
-      return $this->redirectToRoute('app_user_show', ['alert' => $error]);
+      return $this->redirectToRoute('app_login_register', ['alert' => 'test']);
 
   }
-  public function show($id){
-      $entityManager = $this->getDoctrine();
-      $user = $entityManager->getRepository(User::class)->find($id);
 
-      if(!$user){
-        throw $this->createNotFoundException( 'No product found for id '. $id);
-
-      }
-      return new Response("Prodcut ".$id." name:".$user.getLogin());
-
-  }
 
 }

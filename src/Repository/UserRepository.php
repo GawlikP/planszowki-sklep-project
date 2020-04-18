@@ -45,7 +45,7 @@ class UserRepository extends ServiceEntityRepository
 
       $query = $entityManager->createQuery(
         'SELECT n from App\Entity\User n
-        WHERE  n.nick = :nick ORDER BY n.nick ASC'
+        WHERE  n.Nick = :nick ORDER BY n.Nick ASC'
         )->setParameter('nick',$nick);
         return $query->getResult();
     }
