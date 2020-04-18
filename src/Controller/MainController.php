@@ -79,5 +79,15 @@ class MainController extends AbstractController{
   public function info(RequestStack $requestStack){
     return $this->render('info/info.html.twig');
   }
+  public function productView($id, RequestStack $requestStack,Request $request){
 
+    $entityManager = $this->getDoctrine()->getRepository(Product::class);
+
+    $product = $entityManager->find($id);
+    if(!$product){
+      throw $this->createNotFoundException('No product found for id'.$id);
+    }
+
+    return $this->render('product/productview.html.twig', ['product' => $product]);
+  }
 }

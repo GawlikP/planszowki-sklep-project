@@ -1,0 +1,134 @@
+<style>
+  nav{
+      background-color: #4e342e;
+      color: blue;
+  }
+  .nav-link {
+    background-color: #4e342e;
+    color: white;
+  }
+  .nav-item{
+    background-color:#4e342e;
+    color: white;
+  }
+  .dropdown-menu{
+    background-color: #7b5e57;
+    color:white;
+  }
+  .dropdown-item{
+    color: #111111;
+  }
+  .dropdown-item:link{
+    color: #111111;
+  }
+  .dropdown-menu  > a:hover {
+  background-color: #260e04;
+  background-image: none !important;
+  }
+  .input-group > .btn {
+    background-color: #c56000;
+    color:black;
+    width: 100%;
+
+  }
+  .input-group > input {
+    background-color: #8d6e63;
+    color: #111111;
+  }
+  .input-group >input::placeholder{
+    color: #111111;
+  }
+  .form-control {
+    background-color: #8d6e63;
+    color: #111111;
+  }
+  .form-control::placeholder {
+    background-color: #8d6e63;
+    color: #111111;
+  }
+  .form-control:focus {
+    background-color: #8d6e63;
+    color: #111111;
+  }
+  .dropdown-item:hover{
+    background-color: #260e04;
+    color: #111111;
+  }
+
+
+</style>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark" >
+<a class="navbar-brand btn"  href="{{path('app_main_controller')}}"><strong>{%block title %}  {% endblock %}</strong></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link"  href="/">Strona Główna <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item dropdown" >
+      <a class="nav-link dropdown-toggle" style="background-color:##bf360c;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Kategorie
+      </a>
+      <div class="dropdown-menu navbar-dark text-light"   aria-labelledby="navbarDropdown">
+        <a class="dropdown-item navbar-dark text-light"  href="#">Strategiczne</a>
+        <a class="dropdown-item navbar-dark text-light"   href="#">Dla dzieci</a>
+        <a class="dropdown-item navbar-dark text-light"  href="#">Ekonomiczne</a>
+        <a class="dropdown-item navbar-dark text-light"  href="#">Karciane</a>
+        <a class="dropdown-item navbar-dark text-light"  href="#">Rpg</a>
+        <a class="dropdown-item navbar-dark text-light"  href="#">Towarzyskie</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item navbar-dark "  href="{{path('app_info')}}">Informacje</a>
+      </div>
+    </li>
+    <li class="nav-item dropdown" style="background-color:#bf360c;">
+      <a class="nav-link dropdown-toggle" style="background-color:##bf360c;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Profil
+      </a>
+      <div class="dropdown-menu navbar-dark text-light"  aria-labelledby="navbarDropdown">
+        <a class="dropdown-item navbar-dark text-light"   href="#">Wyloguj</a>
+        <a class="dropdown-item navbar-dark text-light"  href="#">Mój koszyk</a>
+        <a class="dropdown-item navbar-dark text-light"  href="#">Ustawienia</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item navbar-dark "  href="{{path('app_info')}}">Informacje</a>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{path('app_product_create')}}"  aria-controls="pillsh-home" aria-selected="true">Dodaj Produkt</a>
+    </li>
+    <li class="nav-item dropdown" style="background-color:#bf360c;">
+      <a class="nav-link dropdown-toggle" style="background-color:##bf360c;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Zaloguj
+      </a>
+      <div class="dropdown-menu navbar-dark text-light"  aria-labelledby="navbarDropdown">
+        <form>
+        <div class="form-group">
+        <p class="dropdown-item">
+        <label for="login"><b class="text-light">Login:</b></label>
+        <input type="text" class="form-control" name="login" id="login"/>
+        </p>
+        <p class="dropdown-item">
+        <label for="haslo"><b class="text-light" >Hasło:</b></label>
+        <input type="text" class="form-control" name="haslo" id="haslo"/>
+        </p>
+
+        <input type="submit" value="zaloguj" class=" form control dropdown-item navbar-dark text-light btn btn-success"/>
+        </div>
+        </form>
+      </div>
+    </li>
+      <a class="nav-link"  href="{{path('app_login_register')}}">Rejestracja <span class="sr-only">(current)</span></a>
+    <li>
+    </li>
+  </ul>
+  <form class="form-inline my-2 my-lg-0 ">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-warning my-2 my-sm-0"  type="submit">Szukaj</button>
+  </form>
+</div>
+</nav>
