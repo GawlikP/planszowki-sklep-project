@@ -8,8 +8,10 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Componeny\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Cookie;
 
 class MainController extends AbstractController{
 
@@ -67,8 +69,11 @@ class MainController extends AbstractController{
 	public function login(RequestStack $requestStack){
 		return $this->redner('login/login.html.twig');
 	}
-  public function register(RequestStack $requestStack){
-    return $this->render('login/register.html.twig');
+  public function register(RequestStack $requestStack, Request $request){
+    $session = $request->getSession();
+    $allert = $session->get('error');
+    $session->set('error','');
+    return $this->render('login/register.html.twig',['alert' => $allert]);
   }
 
   public function info(RequestStack $requestStack){
