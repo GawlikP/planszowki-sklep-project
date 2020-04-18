@@ -21,17 +21,19 @@ class UserController extends AbstractController{
       $password = $request->request->get('haslo');
 
       $entityManager = $this->getDoctrine()->getManager();
+      $products = $this->getDoctrine()->getRepository(User::class)->findIfExist($login);
+      if(empty($products)){
+        $user = new User();
+        $user.setLogin($login);
+        $user.setPassword($password);
 
-      $user = new User();
-      $user.setLogin($login);
-      $user.setPassword($password);
+        $entityManager->persist($user);
 
-      $entityManager->persist($user);
-
-      $entityManager->flush();
-      return $this->redirectToRoute('app_main_controller');
-
-
+        $entityManager->flush();
+        return $this->redirectToRoute('app_main_controller');
+      }
+      $error = "User Already exist";
+      return $this->redirectToRoute('app_user_show', ['alert' => $error]);
 
   }
   public function show($id){
