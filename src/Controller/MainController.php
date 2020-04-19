@@ -109,18 +109,123 @@ class MainController extends AbstractController{
     return $response;
 
   }
+  public function getDataFromBasket(String $basket) :array {
+
+  $items = explode(",",$basket);
+  $tems = [];
+
+  #foreach ($items as &$item) {
+  #  $i = explode("-",$item);
+  #  $keys = array_keys($i);
+  #  $keyone = $keys[0];
+  #  $keytwo = $keys[1];
+  #  if(array_key_exists($i[$keyone],$tems)){
+  #    $tems[$i[$keyone]] += (int)$i[$keytwo];
+  #  }else{
+  #    $tems[$i[$keyone]] = (int)$i[$keytwo];
+  #  }
+  #}
+  foreach ($items as &$item) {
+    $i = explode('-',$item);
+    if(!empty($i[0])){
+      if(array_key_exists($i[0],$tems)){
+        if(!empty($i[1]))
+        $tems[$i[0]] += $i[1];
+      }else{
+        if(!empty($i[1]))
+        $tems[$i[0]] = $i[1];
+      }
+    }
+
+
+  }
+
+  return $tems;
+
+  }
+
+
 
   public function basketShow(RequestStack $requestStack, Request $request){
+    $products = [];
+    $basket = $request->cookies->get('b');
+    if(!empty($basket)){
+    $basket = $this->getDataFromBasket($basket);
+
+    foreach ($basket as $key => $value) {
+      $product = $this->getDoctrine()->getRepository(Product::class)->find($key);
+      if($product){
+      $product->setCount($value);
+      array_push($products,$product);
+    }
+    }
+    $str = '';
+    $it = 0;
+    foreach ($basket as $key => $value) {
+      $str .= $key."-".$value.",";
+    }
+  }
+
+    $context =  $this->render('product/basket.html.twig',
+    ['products'=>$products]);
+
+    $response = new Response($context);
 
 
+    if(!empty($basket))$response->headers->setCookie(new Cookie('b',$str));
+
+
+    return $response;
+  }
+  private function deleteFromBasket($id, $basket): string{
+
+  $tems = $this->getDataFromBasket($basket);
+    foreach ($tems as $key => $value) {
+      if($key != $id)$str .= $key."-".$value.",";
+    }
+
+    return $str;
+  }
+  public function basketDelete($id, Request $request){
+
+      $basket = $request->cookies->get('b');
+
+
+    $context =  $this->redirectToRoute('app_basket_show');
+    $response = new Response($context);
+
+    $basket = $this->deleteFromBasket($id,$basket);
+
+    $response->headers->setCookie(new Cookie('b',$basket));
+
+    return $response;
+  }
+
+  public function basketChange(RequestStack $requeststack, Request $request){
 
     $basket = $request->cookies->get('b');
+    $requestt = $requestStack->getCurrentRequest();
 
+    $context =  $this->redirectToRoute('app_basket_show');
+    $response = new Response($context);
 
+      $tems = $this->getDataFromBasket($basket);
+      foreach ($tems as $key => $value) {
+        $tems[$key] = (int)$requestt->request->get($key);
+      }
 
+      $str = '';
+      foreach ($tems as $key => $value) {
+        $str .= $key."-".$value.",";
+      }
 
-    return $this->render('product/basket.html.twig',
-    ['basket'=>$basket]
-  );
+      $response->headers->setCookie(new Cookie('b',$str));
+
+      return $response;
   }
+
+
+
+
+
 }

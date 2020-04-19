@@ -55,3 +55,11 @@ app_info:
 app_basket_show:
   path: /basket
   controller: App\Controller\MainController::basketShow
+
+app_basket_delete:
+  path: /basket/{id}
+  controller: App\Controller\MainController::basketDelete
+
+app_basket_change:
+  path: /basket/change
+  controller: App\Controller\MainController::basketChange

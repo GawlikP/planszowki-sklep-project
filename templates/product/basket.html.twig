@@ -8,8 +8,44 @@
     <h1> Koszyk </h1>
     </hr>
     <p>
-      <b> Koszyk: {{basket}} </b>
+      <b> Koszyk:  </b>
     </p>
+    <table class="table" style="color:white;">
+    <thead>
+    <form method="POST" action="{{path("app_basket_change")}}">
+    <div class="form-group">
+   <tr>
+     <th scope="col">#</th>
+     <th scope="col">Nazwa</th>
+     <th scope="col">Producent</th>
+     <th scope="col">Ilosc</th>
+     <th scole="col">Cena </th>
+     <th scole="col">Usun </th>
+   </tr>
+ </thead>
+ <tbody>
+{% if products %}
+  {% for item in products %}
+  <tr>
+    <th scope="row">{{item.id}}</th>
+    <td>{{item.name}}</td>
+    <td>{{item.company}}</td>
+    <td>
+    <input type="number" min="1" max="999" step="1"
+    value="{{item.count}}" class="form-control"
+    name="{{item.id}}" id="{{item.id}}"/>
+    </td>
+    <td>{{item.price}}</td>
+    <td> <a href="{{path('app_basket_delete',{id: item.id})}}" class="btn btn-danger">Usun</a></td>
+  </tr>
+  {% endfor %}
+{% endif %}
+</div>
+  </tbody>
+  <input type="submit" class="btn btn-success" value="Zapisz zmiany" />
+
+  </table>
+
   </p>
 
 </div>
