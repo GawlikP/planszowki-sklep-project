@@ -94,14 +94,13 @@ class MainController extends AbstractController{
   }
   public function productBuy($id,Response $response, RequestStack $requestStack, Request $request){
     $request = $requestStack->getCurrentRequest();
-    $response = new Response();
 
-    $basket = $request->cookies->get('basket');
+
+    $basket = $request->cookies->get('b');
     $basket .=  $id."-".$count.",";
 
-    $response->headers->setCookie(new Cookie('basket',$basket));
+    $request->cookies->set('b','dupa');
 
-    $response->send();
 
     return $this->redirectBack();
 
@@ -110,11 +109,11 @@ class MainController extends AbstractController{
   public function basketShow(RequestStack $requestStack, Request $request){
 
 
-    $response = new Response();
-    $basket = $request->cookies->get('basket');
+
+    $basket = $request->cookies->get('b');
 
 
-    $response->send();
+
 
     return $this->render('product/basket.html.twig',
     ['basket'=>$basket]
