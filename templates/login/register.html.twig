@@ -12,9 +12,11 @@
   <p>
     <input type="text" required class="form-control" name="haslo" placeholder="Hasło"/>
   </p>
+  {% if alert %}
   <p class="alert alert-danger">
     {{alert}}
   </p>
+  {% endif %}
   <p>
     <input type="submit" required class="form-control btn btn-success" value="Rejestruj" />
   </p>

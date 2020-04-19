@@ -90,4 +90,29 @@ class MainController extends AbstractController{
 
     return $this->render('product/productview.html.twig', ['product' => $product]);
   }
+  public function productBuy($id, RequestStack $requestStack, Request $request){
+    $request = $requestStack->getCurrentRequest();
+
+    $count = $request->request->get('count');
+    $session = $request->getSession();
+    $basket = $session->get('basket');
+    $basket += $id."-".$count.',';
+
+    $session->set('basket',$basket);
+
+
+    return $this->redirectBack();
+
+  }
+
+  public function basketShow(RequestStack $requestStack, Request $request){
+
+
+    $session = $request->getSession();
+    $basket = $session->get('basket');
+
+    return $this->render('product/basket.html.twig',
+    ['basket'=>$basket]
+  );
+  }
 }

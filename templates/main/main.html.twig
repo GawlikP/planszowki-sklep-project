@@ -12,8 +12,8 @@
     <p class="lead">Wiek od: {{product.age}} | Liczba graczy: {{product.player}} |   </p>
     <hr class="my-4">
     <p> <b>Cena: {{product.price}}</b>  </p>
-    <p> Opis: {{product.descrioption}}</p>
-    <p> <a href="/product/delete/{{product.id}}" class="btn btn-danger" style="230101"> usun </a></p>
+    <p> <a href="/product/delete/{{product.id}}" class="btn btn-danger" style="background-color: #230101"> usun </a>
+     <a href="/product/{{product.id}}" class="btn btn-success" style="background-color: #230101"> Zobacz </a></p>
   </div>
 
 {% endfor %}

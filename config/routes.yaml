@@ -11,9 +11,14 @@ app_main_list:
   methods: GET|HEAD
 
 
-app_product_show:
+app_product_view:
   path: /product/{id}
-  controller: App\Controller\ProductController::showProduct
+  controller: App\Controller\MainController::productView
+
+app_product_pushbasket:
+  path: /product/basket/{id}
+  methods: POST
+  controller: App\Controller\MainController::productBuy
 
 app_product_push:
   path: /product
@@ -46,3 +51,7 @@ app_user_tryregister:
 app_info:
   path: /info
   controller: App\Controller\MainController::info
+
+app_basket_show:
+  path: /basket
+  controller: App\Controller\MainController::basketShow
