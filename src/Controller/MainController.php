@@ -19,6 +19,8 @@ class MainController extends AbstractController{
 
     $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
 
+
+
     return $this->render('main/main.html.twig',
     [ 'test' => '', 'products' => $products,
     ]
@@ -90,16 +92,16 @@ class MainController extends AbstractController{
 
     return $this->render('product/productview.html.twig', ['product' => $product]);
   }
-  public function productBuy($id, RequestStack $requestStack, Request $request){
+  public function productBuy($id,Response $response, RequestStack $requestStack, Request $request){
     $request = $requestStack->getCurrentRequest();
+    $response = new Response();
 
-    $count = $request->request->get('count');
-    $session = $request->getSession();
-    $basket = $session->get('basket');
-    $basket += $id."-".$count.',';
+    $basket = $request->cookies->get('basket');
+    $basket .=  $id."-".$count.",";
 
-    $session->set('basket',$basket);
+    $response->headers->setCookie(new Cookie('basket',$basket));
 
+    $response->send();
 
     return $this->redirectBack();
 
@@ -108,8 +110,11 @@ class MainController extends AbstractController{
   public function basketShow(RequestStack $requestStack, Request $request){
 
 
-    $session = $request->getSession();
-    $basket = $session->get('basket');
+    $response = new Response();
+    $basket = $request->cookies->get('basket');
+
+
+    $response->send();
 
     return $this->render('product/basket.html.twig',
     ['basket'=>$basket]
