@@ -15,7 +15,7 @@
   <b> Cena: {{product.price}} </b></br>
   <b> Minimalny wiek gracza: {{product.age}} </b></br>
   <b> Producent: {{product.company}} </b> </br>
-  <form>
+  <form action="{{path("app_product_pushbasket",{id: product.id}) }}" method="POST">
   <div class="form-group">
     <label for="count"> Ilosc: </label>
     <input name="count" id="count" class="form-control" type="number" min="1" max="999" step="1" value="1"/>

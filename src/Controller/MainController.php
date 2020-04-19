@@ -92,17 +92,21 @@ class MainController extends AbstractController{
 
     return $this->render('product/productview.html.twig', ['product' => $product]);
   }
-  public function productBuy($id,Response $response, RequestStack $requestStack, Request $request){
-    $request = $requestStack->getCurrentRequest();
+  public function productBuy($id,RequestStack $requestStack, Request $request){
+    $requestt = $requestStack->getCurrentRequest();
 
-
+    $count = $requestt->request->get('count');
     $basket = $request->cookies->get('b');
     $basket .=  $id."-".$count.",";
 
     $request->cookies->set('b','dupa');
 
+    $context =  $this->redirectToRoute('app_basket_show');
 
-    return $this->redirectBack();
+    $response = new Response($context);
+
+    $response->headers->setCookie(new Cookie('b',$basket));
+    return $response;
 
   }
 
