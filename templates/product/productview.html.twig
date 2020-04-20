@@ -12,6 +12,15 @@
   {{product.descrioption}}
 </div>
 <div class="jumbotron col" style="width:100%; height:100%; background-color:#8b6b61; color:black;">
+  {% if product.id == 91 %}
+  <img src="https://res.cloudinary.com/hxvlob7m3/image/upload/v1587365534/monopoly_vbx9rv.jpg" class="img-fluid" alt="monopoly"/>
+</br>{% elseif product.id == 81 %}
+<img src="https://res.cloudinary.com/hxvlob7m3/image/upload/v1587365766/small-world_oer0oz.jpg" class="img-fluid" alt="monopoly"/>
+</br>{% elseif product.id == 101 %}
+<img src="https://res.cloudinary.com/hxvlob7m3/image/upload/v1587365804/civilization_lbnmnw.jpg" class="img-fluid" alt="monopoly"/>
+</br>{% elseif product.id == 111 %}
+<img src="https://res.cloudinary.com/hxvlob7m3/image/upload/v1587365813/uno_ohz0g1.jpg" class="img-fluid" alt="monopoly"/>
+</br>{% endif %}
   <b> Cena: {{product.price}} </b></br>
   <b> Minimalny wiek gracza: {{product.age}} </b></br>
   <b> Producent: {{product.company}} </b> </br>

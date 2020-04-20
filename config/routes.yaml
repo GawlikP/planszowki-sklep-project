@@ -57,7 +57,7 @@ app_basket_show:
   controller: App\Controller\MainController::basketShow
 
 app_basket_delete:
-  path: /basket/{id}
+  path: /basket/delete/{id}
   controller: App\Controller\MainController::basketDelete
 
 app_basket_change:

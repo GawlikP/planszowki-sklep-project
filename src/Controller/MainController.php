@@ -201,7 +201,7 @@ class MainController extends AbstractController{
     return $response;
   }
 
-  public function basketChange(RequestStack $requeststack, Request $request){
+  public function basketChange(RequestStack $requestStack, Request $request){
 
     $basket = $request->cookies->get('b');
     $requestt = $requestStack->getCurrentRequest();
