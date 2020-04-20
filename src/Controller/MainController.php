@@ -99,7 +99,7 @@ class MainController extends AbstractController{
     $basket = $request->cookies->get('b');
     $basket .=  $id."-".$count.",";
 
-    
+
 
     $context =  $this->redirectToRoute('app_basket_show');
 
@@ -166,7 +166,7 @@ class MainController extends AbstractController{
     }
   }
 
-    $context =  $this->render('product/basket.html.twig',
+    $context =  $this->renderView('product/basket.html.twig',
     ['products'=>$products]);
 
     $response = new Response($context);
