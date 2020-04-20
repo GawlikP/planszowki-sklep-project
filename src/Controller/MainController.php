@@ -21,10 +21,15 @@ class MainController extends AbstractController{
 
 
 
-    return $this->render('main/main.html.twig',
+    $context =  $this->renderView('main/main.html.twig',
     [ 'test' => '', 'products' => $products,
     ]
     );
+    $response = new Response($context);
+
+    
+
+    return $response;
   }
 
   public function list($id){
@@ -208,7 +213,7 @@ class MainController extends AbstractController{
 
     $context =  $this->redirectToRoute('app_basket_show');
     $response = new Response($context);
-
+    if(!empty($basket)){
       $tems = $this->getDataFromBasket($basket);
       foreach ($tems as $key => $value) {
         $tems[$key] = (int)$requestt->request->get($key);
@@ -220,7 +225,7 @@ class MainController extends AbstractController{
       }
 
       $response->headers->setCookie(new Cookie('b',$str));
-
+    }
       return $response;
   }
 

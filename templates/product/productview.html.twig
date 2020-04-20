@@ -6,7 +6,7 @@
 <div style="background-color:#4e342e; color:white;"><center><h1>{{product.name}} </h1></center></div>
 </hr>
 <div class="container">
-<div class="jumbotron row" style="width:100%; height:100%; background-color:#8b6b61; color:black;">
+<div class="row" style="width:100%; height:100%; background-color:#8b6b61; color:black;">
   {% if product.id == 91 %}
   <img src="https://res.cloudinary.com/hxvlob7m3/image/upload/v1587365534/monopoly_vbx9rv.jpg" class="img-fluid" alt="monopoly"/>
 </br>{% elseif product.id == 81 %}
@@ -21,6 +21,7 @@
 <thead>
 <form method="POST" action="{{path("app_basket_change")}}">
 <div class="form-group">
+
 <tr>
  <th scope="col">#</th>
  <th scope="col">Cena</th>
@@ -31,10 +32,11 @@
 </tr>
 </thead>
 <tbody>
-
-  <td><b> Cena: {{product.price}}|   </b></br></br></td>
-  <td><b> Minimalny wiek gracza: {{product.age}}|   </b></br></br></td>
-  <td><b> Producent: {{product.company}} |  </b> </br></br></td>
+  <tr>
+  <th scope="row"></th>
+  <td><b> Cena: {{product.price}}|   </b></td>
+  <td><b> Minimalny wiek gracza: {{product.age}}|   </b></td>
+  <td><b> Producent: {{product.company}} |  </b></td>
   <form action="{{path("app_product_pushbasket",{id: product.id}) }}" method="POST">
   <div class="form-group">
   <td>  <label for="count"> Ilosc: </label>
@@ -43,10 +45,11 @@
   </div>
   <td><a href="{{path('app_main_controller')}}" class="btn btn-primary">Cofnij</a></td>
   </form>
+  </tr>
   </tbody>
   </table>
   </div>
-  <div class="jumbotron row" style=" width:100%; height:100%; background-color:#8b6b61; color:black;">
+  <div class="row" style=" width:100%; height:100%; background-color:#8b6b61; color:black;">
     <h3> Opis: </h3></br>
     {{product.descrioption}}
   </div>
