@@ -99,7 +99,7 @@ class MainController extends AbstractController{
     $basket = $request->cookies->get('b');
     $basket .=  $id."-".$count.",";
 
-    $request->cookies->set('b','dupa');
+    
 
     $context =  $this->redirectToRoute('app_basket_show');
 
