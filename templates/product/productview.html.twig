@@ -16,21 +16,23 @@
 </br>{% elseif product.id == 111 %}
 <img src="https://res.cloudinary.com/hxvlob7m3/image/upload/v1587365813/uno_ohz0g1.jpg" class="img-fluid" alt="monopoly"/>
 </br>{% endif %}
-  <b> Cena: {{product.price}} </b></br></br>
-  <b> Minimalny wiek gracza: {{product.age}} </b></br></br>
-  <b> Producent: {{product.company}} </b> </br></br>
+<div class="row">
+  <div class="col"><b> Cena: {{product.price}} </b></div>
+  <div class="col"><b> Minimalny wiek gracza: {{product.age}} </b></div>
+  <div class="col"><b> Producent: {{product.company}} </b></div>
   <form action="{{path("app_product_pushbasket",{id: product.id}) }}" method="POST">
-  <div class="form-group">
+  <div class="form-group col">
     <label for="count"> Ilosc: </label>
     <input name="count" id="count" class="form-control" type="number" min="1" max="999" step="1" value="1"/>
     <input type="submit" class="form-control btn btn-success" value="Kup" />
   </div>
-  <a href="{{path('app_main_controller')}}" class="btn btn-primary">Cofnij</a>
+  <div class ="col" ><a href="{{path('app_main_controller')}}" class="btn btn-primary">Cofnij</a></div>
+</div>
   </form>
   </div>
   <div class="jumbotron row" style=" width:100%; height:100%; background-color:#8b6b61; color:black;">
     <h3> Opis: </h3></br>
-    {{product.descrioption}}
+    <h4>{{product.descrioption}}</h4>
   </div>
 
 
