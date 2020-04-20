@@ -16,20 +16,22 @@
 </br>{% elseif product.id == 111 %}
 <img src="https://res.cloudinary.com/hxvlob7m3/image/upload/v1587365813/uno_ohz0g1.jpg" class="img-fluid" alt="monopoly"/>
 </br>{% endif %}
-<div class="row">
-  <div class="col"><b> Cena: {{product.price}} </b></div>
-  <div class="col"><b> Minimalny wiek gracza: {{product.age}} </b></div>
-  <div class="col"><b> Producent: {{product.company}} </b></div>
-  <form action="{{path("app_product_pushbasket",{id: product.id}) }}" method="POST">
-  <div class="form-group col">
-    <label for="count"> Ilosc: </label>
-    <input name="count" id="count" class="form-control" type="number" min="1" max="999" step="1" value="1"/>
-    <input type="submit" class="form-control btn btn-success" value="Kup" />
-  </div>
-  <div class ="col" ><a href="{{path('app_main_controller')}}" class="btn btn-primary">Cofnij</a></div>
+<div class="col">
+  <div class="row"><b> Cena: {{product.price}} </b></div>
+  <div class="row"><b> Minimalny wiek gracza: {{product.age}} </b></div>
+  <div class="row"><b> Producent: {{product.company}} </b></div>
+</div>
+  <div class="col">
+  <form action="{{path("app_product_pushbasket",{id: product.id}) }}" method="POST" style="width:100%; height:100%;">
+  <div class="form-group">
+    <div class="row" ><label for="count"> Ilosc: </label>
+    <input name="count" id="count" class="form-control" type="number" min="1" max="999" step="1" value="1"/></div>
+    <div class="row"><input type="submit" class="form-control btn btn-success" value="Kup" /> </div>
+  <div class ="row" ><a href="{{path('app_main_controller')}}" class="btn btn-primary">Cofnij</a></div>
 </div>
   </form>
   </div>
+</div>
   <div class="jumbotron row" style=" width:100%; height:100%; background-color:#8b6b61; color:black;">
     <h3> Opis: </h3></br>
     <h4>{{product.descrioption}}</h4>
