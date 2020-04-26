@@ -27,7 +27,7 @@ class MainController extends AbstractController{
     );
     $response = new Response($context);
 
-    
+
 
     return $response;
   }
@@ -227,6 +227,25 @@ class MainController extends AbstractController{
       $response->headers->setCookie(new Cookie('b',$str));
     }
       return $response;
+  }
+  public function basketOrder(RequestStack $requestStack, Request $request){
+    $basket = $request->cookies->get('b');
+    if(!empty($basket)){
+    $basket = $this->getDataFromBasket($basket);
+    $cena = 0;
+
+    foreach ($basket as $key => $value) {
+      $product = $this->getDoctrine()->getRepository(Product::class)->find($key);
+      if($product){
+      $cena += $product->getPrice() * $value;
+
+    }
+    }
+    }
+    $context = $this->$context =  $this->renderView('product/basket.html.twig', ['cena' => $cena]);
+    $response = new Response($context);
+
+    return $response;
   }
 
 

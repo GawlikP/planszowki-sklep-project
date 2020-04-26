@@ -63,3 +63,7 @@ app_basket_delete:
 app_basket_change:
   path: /basket/change
   controller: App\Controller\MainController::basketChange
+
+app_basket_order:
+  path: /basket/order
+  controller: App\Controller\MainController::basketOrder
