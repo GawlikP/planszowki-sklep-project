@@ -67,3 +67,6 @@ app_basket_change:
 app_basket_order:
   path: /basket/order
   controller: App\Controller\MainController::basketOrder
+app_basket_tryorder:
+  path: /basket/order/try
+  controller: App\Controller\MainController::basketTryOrder

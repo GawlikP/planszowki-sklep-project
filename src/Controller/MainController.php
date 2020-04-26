@@ -242,10 +242,13 @@ class MainController extends AbstractController{
     }
     }
     }
-    $context = $this->$context =  $this->renderView('basket/order.html.twig', ['cena' => $cena]);
+    $context =  $this->renderView('basket/order.html.twig', ['cena' => $cena]);
     $response = new Response($context);
 
     return $response;
+  }
+  public function basketTryOrder(){
+    return $this->redirectToRoute('app_basket_show');
   }
 
 
