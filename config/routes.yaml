@@ -15,6 +15,14 @@ app_product_view:
   path: /product/{id}
   controller: App\Controller\MainController::productView
 
+app_product_edit:
+  path: /product/edit/{id}
+  controller: App\Controller\MainController::productEdit
+app_product_performedit:
+  path: /produtct/edit/
+  methods: POST
+  controller: App\Controller\MainController::productEditPerform
+
 app_product_pushbasket:
   path: /product/basket/{id}
   methods: POST
@@ -67,6 +75,23 @@ app_basket_change:
 app_basket_order:
   path: /basket/order
   controller: App\Controller\MainController::basketOrder
+
 app_basket_tryorder:
   path: /basket/order/try
   controller: App\Controller\MainController::basketTryOrder
+
+app_admin_order:
+  path: /admin/order
+  controller: App\Controller\MainController::adminOrders
+
+app_admin_users:
+  path: /admin/users
+  controller: App\Controller\MainController::adminUsers
+
+app_admin_userdetails:
+  path: /admin/users/details
+  controller: App\Controller\MainController::adminUserDetails
+
+app_forgotpass:
+  path: /forgotpass
+  controller: App\Controller\MainController::forgotpass

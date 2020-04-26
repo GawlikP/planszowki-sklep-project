@@ -1,9 +1,15 @@
 {% extends "login/temp.html.twig"%}
 {% block title %} Zamówienie {% endblock %}
 {% block content %}
+<style>
+td {
+  background-color:#c63f17;color:white;
+}
+</style>
+
 
   <div class="jumbotron" style="width:100%; height:100%;background-color:#c63f17;color:white;">
-  <h1> <div class="badge badge-success">Cena:{{cena}} </div> </h2>
+  <h1> <div class="badge badge-success">Cena koszyka:{{cena}} </div> </h2>
   <form action="{{path('app_basket_tryorder')}}" method="POST">
   <div class="form-group">
   <h1><b>Dane osobowe</b></h1>
@@ -14,6 +20,20 @@
     <input type="text" class="form-control" placeholder="Miasto" required/>
     <input type="text" class="form-control" placeholder="Ulica" required/>
     <input type="number" max="9999" min="1" step="1" class="form-control" placeholder="Nr Domu" required/>
+  <h1><b>Platnosc </h1></b>
+  <select class="custom-select form-control" id="platnosc" name="platnosc" required>
+    <option selected value="1">Plac w sklepie</option>
+    <option value="2">Karta platnicza</option>
+    <option value="3">Pay Pal</option>
+  </select>
+  <h1><b>Platnosc </h1></b>
+  <select class="custom-select form-control" id="dostawa" name="dostawa" required>
+    <option selected value="1">Odbior w sklepie</option>
+    <option value="2">Poczta Polska</option>
+    <option value="3">InPost</option>
+  </select>
+
+
   <p>
     <input type="submit" required class="form-control btn btn-success" value="Zamów" />
   </p>

@@ -1,0 +1,80 @@
+{% extends "login/temp.html.twig"%}
+{% block title %} Zamówienia {% endblock %}
+{% block content %}
+<style>
+td {
+  background-color:#c63f17;color:white;
+}
+.thorange{
+  background-color:#c63f17;color:white;
+}
+</style>
+
+
+<table class="table">
+<form>
+<div class="form-group">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col"><input type="number" min="1" placeholder="Id" class="form-control"/></th>
+    <th scope="col"><input type="text"  placeholder="Nick" class="form-control"/></th>
+    <th scope="col"><input type="text"  placeholder="Imie" class="form-control"/></th>
+    <th scope="col"><input type="text"  placeholder="Nazwisko" class="form-control"/></th>
+    <th scope="col"><input type="text" placeholder="Typ" class="form-control"/></th>
+    <th scope="col"><input type="data"  placeholder="Data" class="form-control"/></th>
+    <th scope="col"><input type="submit" class="btn btn-success" value="Szukaj"/></th>
+  </tr>
+</thead>
+</div>
+</form>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nick</th>
+      <th scope="col">Imie</th>
+      <th scope="col">Nazwisko</th>
+      <th scope="col">Typ</th>
+      <th scope="col">Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row" class="thorange">1</th>
+      <td>FNOWAK</td>
+      <td>Franciszek</td>
+      <td>Nowak</td>
+      <td>Administrator</td>
+      <td>2020-01-01 20:20</td>
+      <td><a href="" class="btn btn-danger">Usun</a></td>
+      <td><a href="{{path('app_admin_userdetails')}}" class="btn btn-success">Edytuj</a></td>
+    </tr>
+    <tr>
+      <th scope="row" class="thorange">1</th>
+      <td>Szymk</td>
+      <td>Szymon</td>
+      <td>Kowalski</td>
+      <td>Klient</td>
+      <td>2020-01-01 20:24</td>
+      <td><a href="" class="btn btn-danger">Usun</a></td>
+      <td><a href="{{path('app_admin_userdetails')}}">Edytuj</a></td>
+    </tr>
+    <tr>
+      <th scope="row" class="thorange">1</th>
+      <td>G2343</td>
+      <td>Grzegorz</td>
+      <td>Nowak</td>
+      <td>Klient</td>
+      <td>2020-01-01 20:20</td>
+      <td><a href="" class="btn btn-danger">Usun</a></td>
+      <td><a href="{{path('app_admin_userdetails')}}">Edytuj</a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+{% endblock %}
+
+{% block filters %}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "login/temp.html.twig" %}
+{% block title %} Edycja produktu {% endblock %}
+{% block content %}
+
+  <div class="jumbotron" style="width:100%; height:100%;background-color:#c63f17;color:white;">
+  <h3> Edycja produktu: {{product.id}} </h3>
+<form method="POST"  action="{{path('app_product_push')}}" style="width:100%; height:100%;">
+  <div class="form-group" style="width:100%; height:100%;">
+  <input type = "hidden" name="id" value="{{product.id}}" />
+  <p>
+    <input type="text" required class="form-control" name="name" placeholder="{{product.name}}"/>
+  </p>
+  <p>
+    <input type="number" required min="1" step=".01" class="form-control" name="price" placeholder="{{product.price}}"/>
+  </p>
+  <p>
+    <input type="number" required min="1" max="99" class="form-control" name="players" placeholder="{{product.player}}"/>
+  </p>
+  <p>
+    <input type="number" required min="1" max="18" class="form-control" name="age" placeholder="{{product.age}}"/>
+  </p>
+  <p>
+    <input type="text" required class="form-control" name="company_name" placeholder="{{product.company}}"/>
+  </p>
+
+    <div class="form-group">
+      <label for="descpription" class="badge badge-primary "> Description </label>
+      <textarea class="form-control" id="descpription" name="description" rows="5"> {{product.descrioption}}
+      </textarea>
+    </div>
+  </p>
+  <input type="nuber" min="0" step="1" class="form-control" name="count" placeholder="{{product.count}}" />
+  <input type="submit" class="btn btn-success" value="Edytuj" />
+  </div>
+</form>
+
+
+{% endblock %}

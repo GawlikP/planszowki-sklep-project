@@ -1,0 +1,20 @@
+{% extends "login/temp.html.twig"%}
+{% block title %} Zamówienia {% endblock %}
+{% block content %}
+
+<div class="jumbotron" style="background-color:#c63f17;color:white">
+<h1>
+    <b> Jeżeli zapomniałeś hasła, podaj email na który zarejestrowałeś konto, a my wyślemy nowowygenrowane hasło dla ciebie </b>
+</h1>
+  <form>
+  <div class="form-group">
+  <input type="email" required placeholder="email" class="form-control" />
+  <input type="submit" value="Wyślij" class="btn btn-success" style="width:100%"/>
+  </form>
+</div>
+
+{% endblock %}
+
+{% block filters %}
+
+{% endblock %}

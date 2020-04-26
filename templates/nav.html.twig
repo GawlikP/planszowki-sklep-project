@@ -116,14 +116,31 @@
         <label for="haslo"><b class="text-light" >Hasło:</b></label>
         <input type="text" class="form-control" name="haslo" id="haslo"/>
         </p>
+        </p>
+        <p class="dropdown-item">
+            <a href="{{path('app_forgotpass')}}" class="btn btn-warning">Zapomniałem hasła</a>
+        </p>
 
         <input type="submit" value="zaloguj" class=" form control dropdown-item navbar-dark text-light btn btn-success"/>
         </div>
         </form>
       </div>
     </li>
+    <li class="nav-item dropdown" style="background-color:#bf360c;">
+      <a class="nav-link dropdown-toggle" style="background-color:##bf360c;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Admin Panel
+      </a>
+      <div class="dropdown-menu navbar-dark text-light"  aria-labelledby="navbarDropdown">
+        <a class="dropdown-item navbar-dark text-light"   href="{{path('app_admin_order')}}">Zarządzanie zamówieniami</a>
+        <a class="dropdown-item navbar-dark text-light"  href="{{path('app_admin_users')}}">Zarządzanie użytkownikami</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item navbar-dark "  href="{{path('app_info')}}">Informacje</a>
+      </div>
+    </li>
       <a class="nav-link"  href="{{path('app_login_register')}}">Rejestracja <span class="sr-only">(current)</span></a>
+      <a class="nav-link"  href="#">Kontakt <span class="sr-only">(current)</span></a>
     <li>
+
     </li>
   </ul>
   <form class="form-inline my-2 my-lg-0 ">

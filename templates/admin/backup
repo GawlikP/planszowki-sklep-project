@@ -1,0 +1,79 @@
+{% extends "login/temp.html.twig"%}
+{% block title %} Zamówienia {% endblock %}
+{% block content %}
+<style>
+td {
+  background-color:#c63f17;color:white;
+}
+.thorange{
+  background-color:#c63f17;color:white;
+}
+</style>
+
+
+<table class="table">
+<form>
+<div class="form-group">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col"><input type="number" min="1" placeholder="Id" class="form-control"/></th>
+    <th scope="col"><input type="text"  placeholder="Index" class="form-control"/></th>
+    <th scope="col"><input type="text"  placeholder="Dostawa" class="form-control"/></th>
+    <th scope="col"><input type="text"  placeholder="Klient" class="form-control"/></th>
+    <th scope="col"><input type="text"  placeholder="Płatność" class="form-control"/></th>
+    <th scope="col"><input type="text" placeholder="Stan" class="form-control"/></th>
+    <th scope="col"><input type="data"  placeholder="Data" class="form-control"/></th>
+    <th scope="col"><input type="submit" class="btn btn-success" value="Szukaj"/></th>
+  </tr>
+</thead>
+</div>
+</form>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Indeks</th>
+      <th scope="col">Dostawa</th>
+      <th scope="col">Klient</th>
+      <th scope="col">Płatność</th>
+      <th scope="col">Stan</th>
+      <th scope="col">Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row" class="thorange">1</th>
+      <td>FDGHHGJR</td>
+      <td>InPost</td>
+      <td>F Nowak</td>
+      <td>Pay Pal</td>
+      <td class="alert-info">W trakcie realizacji</td>
+      <td>2020-01-01 20:20</td>
+    </tr>
+    <tr>
+      <th scope="row" class="thorange">2</th>
+      <td>TRDDSFRSAD</td>
+      <td>Poczta Polska</td>
+      <td>P Kowalski</td>
+      <td>Pay Pal</td>
+      <td class="alert-info">Oczekiawnie na opłacenie</td>
+      <td>2020-03-01 20:20</td>
+    </tr>
+    <tr>
+      <th scope="row" class="thorange">3</th>
+      <td>HGFCXVXSADAWEERE</td>
+      <td>InPost</td>
+      <td>G Nowak</td>
+      <td>Przelew</td>
+      <td class="alert-info">Zrealizowano</td>
+      <td>2020-01-01 21:37</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+{% endblock %}
+
+{% block filters %}
+
+{% endblock %}

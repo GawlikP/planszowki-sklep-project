@@ -13,7 +13,9 @@
     <hr class="my-4">
     <p> <b>Cena: {{product.price}}</b>  </p>
     <p> <a href="/product/delete/{{product.id}}" class="btn btn-danger" style="background-color: #230101"> usun </a>
-     <a href="/product/{{product.id}}" class="btn btn-success" style="background-color: #230101"> Zobacz </a></p>
+     <a href="/product/{{product.id}}" class="btn btn-success" style="background-color: #230101"> Zobacz </a>
+     <a href="product/edit/{{product.id}}" class="btn btn-primary" stlye="background-color:#230101"> Edytuj</a>
+     </p>
   </div>
 
 {% endfor %}

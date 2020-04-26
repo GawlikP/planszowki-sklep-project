@@ -73,6 +73,40 @@ class MainController extends AbstractController{
       $entityManager->flush();
         return $this->redirectToRoute('app_main_controller');
   }
+  public function productEditPerform(RequestStack $requestStack){
+    $request = $requestStack->getCurrentRequest();
+
+    $id = $request->request->get('id');
+    $name = $request->request->get('name');
+    $price = $request->request->get('price');
+    $players = $request->request->get('players');
+    $age = $request->request->get('age');
+    $company_name = $request->request->get('company_name');
+    $ccount = $request->request->get('count');
+    $description = $request->request->get('description');
+
+    $entityManager = $this->getDoctrine()->getManager();
+
+    $product = $entityManager->getRepository(Product::class)->find($id);
+    if(!$product){
+      throw $this->createNotFoundException(
+            'No product found for id '.$id
+        );
+    }
+    $product->setName($name);
+    $product->setPrice($price);
+    $product->setPlayer($players);
+    $product->setAge($age);
+    $product->setCount(0);
+    $product->setCompany($company_name);
+  #  $product->setCategory($category);
+    $product->setDescrioption($description);
+
+    $entityManager->persist($product);
+
+    $entityManager->flush();
+      return $this->redirectToRoute('app_main_controller');
+  }
 	public function login(RequestStack $requestStack){
 		return $this->redner('login/login.html.twig');
 	}
@@ -96,6 +130,17 @@ class MainController extends AbstractController{
     }
 
     return $this->render('product/productview.html.twig', ['product' => $product]);
+  }
+  public function productEdit($id, RequestStack $requestStack,Request $request){
+
+    $entityManager = $this->getDoctrine()->getRepository(Product::class);
+
+    $product = $entityManager->find($id);
+    if(!$product){
+      throw $this->createNotFoundException('No product found for id'.$id);
+    }
+
+    return $this->render('admin/product.html.twig', ['product' => $product]);
   }
   public function productBuy($id,RequestStack $requestStack, Request $request){
     $requestt = $requestStack->getCurrentRequest();
@@ -250,7 +295,20 @@ class MainController extends AbstractController{
   public function basketTryOrder(){
     return $this->redirectToRoute('app_basket_show');
   }
+  public function adminOrders(){
+    return $this->render('admin/order.html.twig');
+  }
 
+  public function adminUsers(){
+    return $this->render('admin/users.html.twig');
+  }
+  public function adminUserDetails(){
+    return $this->render('admin/user.html.twig');
+  }
+  //public function contact{ return $this->render('contact.html.twig')}
+  public function forgotpass(){
+    return $this->render('forgotpass.html.twig');
+  }
 
 
 

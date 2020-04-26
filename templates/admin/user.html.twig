@@ -1,0 +1,32 @@
+{% extends "login/temp.html.twig"%}
+{% block title %} Zamówienia {% endblock %}
+{% block content %}
+
+  <div class="jumbotron">
+    <p>Imie: Test </p>
+    <p>Nazwisko: Test </p>
+    <p>Nick: Test </p>
+    <p>Data założenia konta: 2020-02-02 </p>
+    <p>Typ konta: Klient</p>
+    <form>
+    <div class="form-group">
+      <input type="submit" class="btn btn-danger" value="delete" />
+    </div>
+    </form>
+    <form>
+    <div class="form-group">
+      <input type="submit" class="btn btn-info" value="Edit" />
+    </div>
+    </form>
+    <form>
+    <div class="form-group">
+      <input type="submit" class="btn btn-seccondary" value="Block" />
+    </div>
+    </form>
+  </div>
+
+{% endblock %}
+
+{% block filters %}
+
+{% endblock %}
