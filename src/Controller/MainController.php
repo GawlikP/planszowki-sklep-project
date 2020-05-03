@@ -321,8 +321,14 @@ class MainController extends AbstractController{
       $password = $request->request->get('password');
 
       if($login == 'Admin' && $password == 'Admin'){
-        $token = 'Admin';
-      }else{
+        $token = $login + " " +$password;
+      }elseif ($login == 'Dealer' && $password == 'Dealer') {
+        $token = $login + " " +$password;
+      }elseif ($login == 'Customer' && $password == 'Customer') {
+        $token = $login + " " +$password;
+      }
+
+      else{
         $context = $this->redirectToRoute('app_main_controller');
         $response = new Response($context);
         $response->headers->clearCookie('token');
