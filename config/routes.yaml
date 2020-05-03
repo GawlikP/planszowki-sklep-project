@@ -63,6 +63,10 @@ app_info:
 app_basket_show:
   path: /basket
   controller: App\Controller\MainController::basketShow
+  
+app_basket_drop:
+  path: /basket/drop
+  controller: App\Controller\MainController::basketDrop
 
 app_basket_delete:
   path: /basket/delete/{id}

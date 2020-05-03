@@ -354,6 +354,12 @@ class MainController extends AbstractController{
     $response->headers->clearCookie('token');
     return $response;
   }
+  public function basketDrop(RequestStack $requestStack, Request $request){
+    $context = $this->redirectToRoute('app_basket_show');
+    $response = new Response($context);
+    $response->headers->clearCookie('b');
+    return $response;
+  }
 
 
 
