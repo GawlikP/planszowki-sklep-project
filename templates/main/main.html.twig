@@ -9,13 +9,13 @@
   <div class="jumbotron " style="background-color:#c63f17;color:white">
 
     <h1 class="display-4"> {{product.name}}</h1>
-    <p class="lead">Wiek od: {{product.age}} | Liczba graczy: {{product.player}} |   </p>
+    <p class="lead">Wiek od: {{product.age}} | Liczba graczy: {{product.player}} |</p>
     <hr class="my-4">
     <p> <b>Cena: {{product.price}}</b>  </p>
-    <p> <a href="/product/delete/{{product.id}}" class="btn btn-danger" style="background-color: #230101"> usun </a>
-     <a href="/product/{{product.id}}" class="btn btn-success" style="background-color: #230101"> Zobacz </a>
-     <a href="product/edit/{{product.id}}" class="btn btn-primary" stlye="background-color:#230101"> Edytuj</a>
-     </p>
+    {% if app.request.cookies.get('token') == 'Admin Admin'  or app.request.cookies.get('token') == 'Dealer Dealer' %}<p> <a href="/product/delete/{{product.id}}" class="btn btn-danger" style="background-color: #230101"> usun </a>
+  {% endif %}<a href="/product/{{product.id}}" class="btn btn-success" style="background-color: #230101"> Zobacz </a>
+      {% if app.request.cookies.get('token') == 'Admin Admin'  or app.request.cookies.get('token') == 'Dealer Dealer' %} <a href="product/edit/{{product.id}}" class="btn btn-primary" stlye="background-color:#230101"> Edytuj</a>
+     {% endif %}</p>
   </div>
 
 {% endfor %}

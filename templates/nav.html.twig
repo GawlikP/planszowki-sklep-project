@@ -139,7 +139,11 @@
 
     {% if app.request.cookies.get('token') %}
     <li>
-      <a class="nav-link">Loged as:<b>{{ app.request.cookies.get('token') }}<b></a>
+      <a class="nav-link">Loged as:<b>
+        {% set foo = app.request.cookies.get('token') |split(' ') %}
+        {{foo[1]}}
+
+      <b></a>
     </li>
     <li>
       <a class="nav-link btn btn-danger" href="{{path('app_login_out')}}">Wyloguj</a>

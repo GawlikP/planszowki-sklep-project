@@ -321,11 +321,11 @@ class MainController extends AbstractController{
       $password = $request->request->get('password');
 
       if($login == 'Admin' && $password == 'Admin'){
-        $token = $login + " " +$password;
+        $token = $login." ".$password;
       }elseif ($login == 'Dealer' && $password == 'Dealer') {
-        $token = $login + " " +$password;
+        $token = $login." ".$password;
       }elseif ($login == 'Customer' && $password == 'Customer') {
-        $token = $login + " " +$password;
+        $token = $login." ".$password;
       }
 
       else{
