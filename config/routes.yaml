@@ -95,3 +95,12 @@ app_admin_userdetails:
 app_forgotpass:
   path: /forgotpass
   controller: App\Controller\MainController::forgotpass
+
+app_login_try:
+  path: /login/try
+  controller: App\Controller\MainController::tryLogin
+  methods: POST
+
+app_login_out:
+  path: /login/out
+  controller: App\Controller\MainController:loginOut
