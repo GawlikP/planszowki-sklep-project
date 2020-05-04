@@ -200,6 +200,8 @@ class MainController extends AbstractController{
   public function basketShow(RequestStack $requestStack, Request $request){
     $products = [];
     $basket = $request->cookies->get('b');
+
+    $cena = 0;
     if(!empty($basket)){
     $basket = $this->getDataFromBasket($basket);
 
@@ -207,6 +209,7 @@ class MainController extends AbstractController{
       $product = $this->getDoctrine()->getRepository(Product::class)->find($key);
       if($product){
       $product->setCount($value);
+      $cena += $product->getPrice() * $value;
       array_push($products,$product);
     }
     }
@@ -215,10 +218,12 @@ class MainController extends AbstractController{
     foreach ($basket as $key => $value) {
       $str .= $key."-".$value.",";
     }
+
+
   }
 
     $context =  $this->renderView('product/basket.html.twig',
-    ['products'=>$products]);
+    ['products'=>$products, 'cena' =>$cena]);
 
     $response = new Response($context);
 
@@ -317,7 +322,7 @@ class MainController extends AbstractController{
     $token = '';
     $requestt = $requestStack->getCurrentRequest();
     $token = $request->cookies->get('token');
-    
+
       $login =  $requestt->request->get('login');
       $password = $request->request->get('password');
 
