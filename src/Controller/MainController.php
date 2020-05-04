@@ -15,14 +15,15 @@ use Symfony\Component\HttpFoundation\Cookie;
 
 class MainController extends AbstractController{
 
-  public function main(RequestStack $requestStack){
+  public function main(RequestStack $requestStack, Request $request){
 
     $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-
+    $request = $requestStack->getCurrentRequest();
+    $login_error = $request->query->get('login_error');
 
 
     $context =  $this->renderView('main/main.html.twig',
-    [ 'test' => '', 'products' => $products,
+    [ 'test' => '', 'products' => $products, 'login_error' => $login_error
     ]
     );
     $response = new Response($context);
@@ -34,7 +35,7 @@ class MainController extends AbstractController{
 
   public function list($id){
       return $this->render('main/main.html.twig',[
-        'test' => $id,
+        'test' => $id, 'login_error' => ''
       ]);
   }
 
@@ -316,7 +317,7 @@ class MainController extends AbstractController{
     $token = '';
     $requestt = $requestStack->getCurrentRequest();
     $token = $request->cookies->get('token');
-    if(empty($token)){
+    
       $login =  $requestt->request->get('login');
       $password = $request->request->get('password');
 
@@ -329,17 +330,12 @@ class MainController extends AbstractController{
       }
 
       else{
-        $context = $this->redirectToRoute('app_main_controller');
+        $context = $this->redirect($this->generateUrl('app_main_controller', array('login_error' => true)));
         $response = new Response($context);
         $response->headers->clearCookie('token');
         return $response;
       }
-    }else{
-      $context = $this->redirectToRoute('app_main_controller');
-      $response = new Response($context);
-      $response->headers->clearCookie('token');
-      return $response;
-    }
+
 
     $context =  $this->renderView('login/login.html.twig',['login' => $login]);
     $response = new Response($context);

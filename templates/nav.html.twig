@@ -92,7 +92,7 @@
         Profil
       </a>
       <div class="dropdown-menu navbar-dark text-light"  aria-labelledby="navbarDropdown">
-        
+
         <a class="dropdown-item navbar-dark text-light"  href="{{path('app_basket_show')}}">Mój koszyk</a>
         <a class="dropdown-item navbar-dark text-light"  href="#">Ustawienia</a>
         <div class="dropdown-divider"></div>
@@ -126,6 +126,7 @@
         </div>
         </form>
       </div>
+      
     </li>
     {% if app.request.cookies.get('token') == 'Admin Admin' %}
     <li class="nav-item dropdown" style="background-color:#bf360c;">
