@@ -111,7 +111,7 @@
         <div class="form-group">
         <p class="dropdown-item">
         <label for="login"><b class="text-light">Login:</b></label>
-        <input type="text" class="form-control" name="login" id="login"/>
+        <input type="text" class="form-control" name="nick" id="login"/>
         </p>
         <p class="dropdown-item">
         <label for="haslo"><b class="text-light" >Hasło:</b></label>
@@ -126,9 +126,11 @@
         </div>
         </form>
       </div>
-      
+
     </li>
-    {% if app.request.cookies.get('token') == 'Admin Admin' %}
+    {% set check_adm = app.request.cookies.get('token') |split(' ') %}
+    {% if check_adm|length > 2 %}
+    {% if check_adm[2] == 'Admin' %}
     <li class="nav-item dropdown" style="background-color:#bf360c;">
       <a class="nav-link dropdown-toggle" style="background-color:##bf360c;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Admin Panel
@@ -136,10 +138,12 @@
       <div class="dropdown-menu navbar-dark text-light"  aria-labelledby="navbarDropdown">
         <a class="dropdown-item navbar-dark text-light"   href="{{path('app_admin_order')}}">Zarządzanie zamówieniami</a>
         <a class="dropdown-item navbar-dark text-light"  href="{{path('app_admin_users')}}">Zarządzanie użytkownikami</a>
+        <a class="dropdown-item navbar-dark text-light" href="{{path('app_admin_workers')}}">Zarządanie pracownikami</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item navbar-dark "  href="{{path('app_info')}}">Informacje</a>
       </div>
     </li>
+  {% endif %}
   {% endif %}
       <a class="nav-link"  href="{{path('app_login_register')}}">Rejestracja <span class="sr-only">(current)</span></a>
       <a class="nav-link"  href="#">Kontakt <span class="sr-only">(current)</span></a>

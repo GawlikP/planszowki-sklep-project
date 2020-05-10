@@ -13,13 +13,13 @@
     <input type="password" required class="form-control" name="haslo" placeholder="Hasło"/>
   </p>
   <p>
-    <input type="text" required class="form-control" name="imie" pattern="[A-Za-z]." placeholder="Imię"/>
+    <input type="text" required class="form-control" name="imie" pattern="[A-Z]{1}[a-z]+" placeholder="Imię"/>
   </p>
   <p>
-    <input type="text" required class="form-control" name="nazwisko" pattern="[A-Za-z]." placeholder="Nazwisko"/>
+    <input type="text" required class="form-control" name="nazwisko" pattern="[A-Z]{1}[a-z,ś,ó,ż,ź,ć]+" placeholder="Nazwisko"/>
   </p>
   <p>
-    <input type="email" required class="form-control" name="email" placeholder="Email"/>
+    <input type="email" name="email" required class="form-control" name="email" placeholder="Email"/>
   </p>
   {% if alert %}
   <p class="alert alert-danger">

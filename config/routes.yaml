@@ -50,6 +50,9 @@ app_login_register:
   path: /register
   controller: App\Controller\MainController::register
 
+app_login_tryregisterWorker:
+  path: /register/worker
+  controller: App\Controller\UserController::tryWorkerRegister
 
 app_user_tryregister:
   path: /user/register
@@ -63,7 +66,7 @@ app_info:
 app_basket_show:
   path: /basket
   controller: App\Controller\MainController::basketShow
-  
+
 app_basket_drop:
   path: /basket/drop
   controller: App\Controller\MainController::basketDrop
@@ -96,15 +99,21 @@ app_admin_userdetails:
   path: /admin/users/details
   controller: App\Controller\MainController::adminUserDetails
 
+app_admin_workers:
+  path: /admin/workers
+  controller: App\Controller\AdminController::workersList
+
+
+
 app_forgotpass:
   path: /forgotpass
   controller: App\Controller\MainController::forgotpass
 
 app_login_try:
   path: /login/try
-  controller: App\Controller\MainController::tryLogin
+  controller: App\Controller\UserController::tryLogin
   methods: POST
 
 app_login_out:
   path: /login/out
-  controller: App\Controller\MainController:loginOut
+  controller: App\Controller\UserController:loginOut

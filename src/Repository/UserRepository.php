@@ -37,18 +37,31 @@ class UserRepository extends ServiceEntityRepository
     */
 
     /**
-    * @return Product[]
+    * @return User[]
     */
     public function findIfExist($nick): array
     {
       $entityManager = $this->getEntityManager();
 
       $query = $entityManager->createQuery(
-        'SELECT n from App\Entity\User n
+        'SELECT n.Nick, n.Password, n.Permission from App\Entity\User n
         WHERE  n.Nick = :nick ORDER BY n.Nick ASC'
         )->setParameter('nick',$nick);
         return $query->getResult();
     }
+
+    public function findAllWorkers(): array {
+      $entityManager = $this->getEntityManager();
+
+      $query = $entityManager->createQuery(
+        'SELECT n.id, n.Nick, n.email from App\Entity\User n WHERE
+        n.Permission = :permission ORDER BY n.Nick ASC
+        '
+      )->setParameter('permission', 2);
+      return $query->getResult();
+    }
+
+
     /*
     public function findOneBySomeField($value): ?User
     {

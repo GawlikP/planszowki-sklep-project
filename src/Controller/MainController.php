@@ -316,45 +316,7 @@ class MainController extends AbstractController{
     return $this->render('forgotpass.html.twig');
   }
 
-  public function tryLogin(RequestStack $requestStack, Request $request){
-    #$response->headers->setCookie(new Cookie('b',$str));
-    # $response->headers->clearCookie('nameOfTheCookie');
-    $token = '';
-    $requestt = $requestStack->getCurrentRequest();
-    $token = $request->cookies->get('token');
 
-      $login =  $requestt->request->get('login');
-      $password = $request->request->get('password');
-
-      if($login == 'Admin' && $password == 'Admin'){
-        $token = $login." ".$password;
-      }elseif ($login == 'Dealer' && $password == 'Dealer') {
-        $token = $login." ".$password;
-      }elseif ($login == 'Customer' && $password == 'Customer') {
-        $token = $login." ".$password;
-      }
-
-      else{
-        $context = $this->redirect($this->generateUrl('app_main_controller', array('login_error' => true)));
-        $response = new Response($context);
-        $response->headers->clearCookie('token');
-        return $response;
-      }
-
-
-    $context =  $this->renderView('login/login.html.twig',['login' => $login]);
-    $response = new Response($context);
-
-
-    $response->headers->setCookie(new Cookie('token',$token));
-    return $response;
-  }
-  public function loginOut(RequestStack $requestStack, Request $request){
-    $context = $this->redirectToRoute('app_main_controller');
-    $response = new Response($context);
-    $response->headers->clearCookie('token');
-    return $response;
-  }
   public function basketDrop(RequestStack $requestStack, Request $request){
     $context = $this->redirectToRoute('app_basket_show');
     $response = new Response($context);

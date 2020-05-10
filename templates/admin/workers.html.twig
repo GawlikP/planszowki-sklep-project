@@ -1,0 +1,96 @@
+{% extends "login/temp.html.twig"%}
+{% block title %} Zamówienia {% endblock %}
+{% block content %}
+<style>
+td {
+  background-color:#c63f17;color:white;
+}
+.thorange{
+  background-color:#c63f17;color:white;
+}
+</style>
+
+
+<table class="table">
+<form>
+<div class="form-group">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col"><input type="number" min="1" placeholder="Id" class="form-control"/></th>
+    <th scope="col"><input type="text"  placeholder="Nick" class="form-control"/></th>
+    <th scope="col"><input type="text"  placeholder="Imie" class="form-control"/></th>
+    <th scope="col"><input type="text"  placeholder="Nazwisko" class="form-control"/></th>
+    <th scope="col"><input type="text" placeholder="Typ" class="form-control"/></th>
+    <th scope="col"><input type="email"  placeholder="Email" class="form-control"/></th>
+    <th scope="col"><input type="submit" class="btn btn-success" value="Szukaj"/></th>
+  </tr>
+</thead>
+</div>
+</form>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nick</th>
+      <th scope="col">Imie</th>
+      <th scope="col">Nazwisko</th>
+      <th scope="col">email</th>
+      <th scope="col">Data</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% if workers %}
+    {% for worker in workers %}
+      <tr>
+      <th scope="row" class="thorange">{{worker.id}}</th>
+      <td>{{worker.Nick}}</td>
+      <td> </td>
+      <td> </td>
+      <td>{{worker.email}}</td>
+      <td>2020-01-01 20:20</td>
+      <td></td>
+      <td></td>
+      </tr>
+    {% endfor %}
+
+
+  {% endif %}
+  </tbody>
+</table>
+
+<form action="{{path('app_login_tryregisterWorker')}}" method="POST">
+<div class="form-group">
+<h1><b><center> Rejestracja </center></b></h1>
+<p>
+  <input type="text" required class="form-control" name="nick" placeholder="Login"/>
+</p>
+<p>
+  <input type="password" required class="form-control" name="haslo" placeholder="Hasło"/>
+</p>
+<p>
+  <input type="text" required class="form-control" name="imie" pattern="[A-Z]{1}[a-z]+" placeholder="Imię"/>
+</p>
+<p>
+  <input type="text" required class="form-control" name="nazwisko" pattern="[A-Z]{1}[a-z,ś,ó,ż,ź,ć]+" placeholder="Nazwisko"/>
+</p>
+<p>
+  <input type="email" name="email" required class="form-control" name="email" placeholder="Email"/>
+</p>
+{% if alert %}
+<p class="alert alert-danger">
+  {{alert}}
+</p>
+{% endif %}
+<p>
+  <input type="submit" required class="form-control btn btn-success" value="Rejestruj" />
+</p>
+</div>
+</div>
+</form>
+
+
+
+{% endblock %}
+
+{% block filters %}
+
+{% endblock %}
