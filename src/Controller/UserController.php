@@ -45,6 +45,35 @@ class UserController extends AbstractController{
       return $this->redirectToRoute('app_login_register', $request->query->all());
 
   }
+  public function tryUserRegister(RequestStack $requestStack, Request $request){
+    $request = $requestStack->getCurrentRequest();
+
+    #$id = $request->request->get('id');
+    $login = $request->request->get('nick');
+    $password = $request->request->get('haslo');
+    $email = $request->request->get('email');
+
+    $entityManager = $this->getDoctrine()->getManager();
+    $user = $this->getDoctrine()->getRepository(User::class)->findIfExist($login);
+    if(empty($user)){
+      $nuser = new User();
+      $nuser->setNick($login);
+      $nuser->setPassword($password);
+      $nuser->setPermission(1);
+      $nuser->setEmail($email);
+
+      $entityManager->persist($nuser);
+
+      $entityManager->flush();
+      return $this->redirectToRoute('app_admin_users');
+    }
+    $session = $request->getSession();
+    $error = "User Already exist";
+    $session->set('error',$error);
+
+
+    return $this->redirectToRoute('app_admin_userses', $request->query->all());
+  }
   public function tryWorkerRegister(RequestStack $requestStack, Request $request){
     $request = $requestStack->getCurrentRequest();
 

@@ -50,6 +50,10 @@ app_login_register:
   path: /register
   controller: App\Controller\MainController::register
 
+app_login_tryregisterUser:
+  path: /register/newuser
+  controller: App\Controller\UserController::tryUserRegister
+
 app_login_tryregisterWorker:
   path: /register/worker
   controller: App\Controller\UserController::tryWorkerRegister
@@ -93,7 +97,7 @@ app_admin_order:
 
 app_admin_users:
   path: /admin/users
-  controller: App\Controller\MainController::adminUsers
+  controller: App\Controller\AdminController::usersList
 
 app_admin_userdetails:
   path: /admin/users/details
@@ -102,6 +106,15 @@ app_admin_userdetails:
 app_admin_workers:
   path: /admin/workers
   controller: App\Controller\AdminController::workersList
+app_admin_workers_edit:
+  path: /admin/workers/edit/{id}
+  controller: App\Controller\AdminController::workerEdit
+app_admin_workers_edittry:
+  path: /admin/users/edit/try/{id}
+  controller: App\Controller\AdminController:workerEditTry
+app_admin_workers_delete:
+  path: /admin/users/delete/{id}
+  controller: App\Controller\AdminControler::workerDelete
 
 
 

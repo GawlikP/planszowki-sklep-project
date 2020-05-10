@@ -20,7 +20,7 @@ td {
     <th scope="col"><input type="text"  placeholder="Nick" class="form-control"/></th>
     <th scope="col"><input type="text"  placeholder="Imie" class="form-control"/></th>
     <th scope="col"><input type="text"  placeholder="Nazwisko" class="form-control"/></th>
-    <th scope="col"><input type="text" placeholder="Typ" class="form-control"/></th>
+    <th scope="col"><input type="text" placeholder="Email" class="form-control"/></th>
     <th scope="col"><input type="data"  placeholder="Data" class="form-control"/></th>
     <th scope="col"><input type="submit" class="btn btn-success" value="Szukaj"/></th>
   </tr>
@@ -33,45 +33,59 @@ td {
       <th scope="col">Nick</th>
       <th scope="col">Imie</th>
       <th scope="col">Nazwisko</th>
-      <th scope="col">Typ</th>
+      <th scope="col">Email</th>
       <th scope="col">Data</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row" class="thorange">1</th>
-      <td>FNOWAK</td>
-      <td>Franciszek</td>
-      <td>Nowak</td>
-      <td>Administrator</td>
+  {% if users %}
+    {% for user in users %}
+      <tr>
+      <th scope="row" class="thorange">{{user.id}}</th>
+      <td>{{user.Nick}}</td>
+      <td> </td>
+      <td> </td>
+      <td>{{user.email}}</td>
       <td>2020-01-01 20:20</td>
-      <td><a href="" class="btn btn-danger">Usun</a></td>
-      <td><a href="{{path('app_admin_userdetails')}}" class="btn btn-success">Edytuj</a></td>
-    </tr>
-    <tr>
-      <th scope="row" class="thorange">1</th>
-      <td>Szymk</td>
-      <td>Szymon</td>
-      <td>Kowalski</td>
-      <td>Klient</td>
-      <td>2020-01-01 20:24</td>
-      <td><a href="" class="btn btn-danger">Usun</a></td>
-      <td><a href="{{path('app_admin_userdetails')}}" class="btn btn-success">Edytuj</a></td>
-    </tr>
-    <tr>
-      <th scope="row" class="thorange">1</th>
-      <td>G2343</td>
-      <td>Grzegorz</td>
-      <td>Nowak</td>
-      <td>Klient</td>
-      <td>2020-01-01 20:20</td>
-      <td><a href="" class="btn btn-danger">Usun</a></td>
-      <td><a href="{{path('app_admin_userdetails')}}" class="btn btn-success">Edytuj</a></td>
-    </tr>
+      <td></td>
+      <td></td>
+      </tr>
+    {% endfor %}
+
+
+  {% endif %}
   </tbody>
 </table>
 
-
+<form action="{{path('app_login_tryregisterUser')}}" method="POST">
+<div class="form-group">
+<h1><b><center> Rejestracja </center></b></h1>
+<p>
+  <input type="text" required class="form-control" name="nick" placeholder="Login"/>
+</p>
+<p>
+  <input type="password" required class="form-control" name="haslo" placeholder="Hasło"/>
+</p>
+<p>
+  <input type="text" required class="form-control" name="imie" pattern="[A-Z]{1}[a-z]+" placeholder="Imię"/>
+</p>
+<p>
+  <input type="text" required class="form-control" name="nazwisko" pattern="[A-Z]{1}[a-z,ś,ó,ż,ź,ć]+" placeholder="Nazwisko"/>
+</p>
+<p>
+  <input type="email" name="email" required class="form-control" name="email" placeholder="Email"/>
+</p>
+{% if alert %}
+<p class="alert alert-danger">
+  {{alert}}
+</p>
+{% endif %}
+<p>
+  <input type="submit" required class="form-control btn btn-success" value="Rejestruj" />
+</p>
+</div>
+</div>
+</form>
 
 {% endblock %}
 

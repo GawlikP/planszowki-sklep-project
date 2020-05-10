@@ -47,8 +47,8 @@ td {
       <td> </td>
       <td>{{worker.email}}</td>
       <td>2020-01-01 20:20</td>
-      <td></td>
-      <td></td>
+      <td><a href="{{path('app_admin_workers_delete',{id: worker.id})}}" class="btn btn-danger">Usun</a></td>
+      <td><a href="{{path('app_admin_workers_edit',{id: worker.id})}}" class="btn btn-primary">Edytuj</a></td>
       </tr>
     {% endfor %}
 

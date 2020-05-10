@@ -305,9 +305,7 @@ class MainController extends AbstractController{
     return $this->render('admin/order.html.twig');
   }
 
-  public function adminUsers(){
-    return $this->render('admin/users.html.twig');
-  }
+  
   public function adminUserDetails(){
     return $this->render('admin/user.html.twig');
   }

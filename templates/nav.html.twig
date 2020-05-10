@@ -57,7 +57,7 @@
 
 
 </style>
-
+{% set check_adm = app.request.cookies.get('token') |split(' ') %}
 
 
 <nav class="navbar navbar-expand-lg navbar-dark" >
@@ -99,9 +99,13 @@
         <a class="dropdown-item navbar-dark "  href="{{path('app_info')}}">Informacje</a>
       </div>
     </li>
+    {% if check_adm|length > 2 %}
+    {% if check_adm[2] == 'Admin' or check_adm[2] == 'WRK' %}
     <li class="nav-item">
       <a class="nav-link" href="{{path('app_product_create')}}"  aria-controls="pillsh-home" aria-selected="true">Dodaj Produkt</a>
     </li>
+   {% endif %}
+   {% endif %}
     <li class="nav-item dropdown" style="background-color:#bf360c;">
       <a class="nav-link dropdown-toggle" style="background-color:##bf360c;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Zaloguj
@@ -128,7 +132,7 @@
       </div>
 
     </li>
-    {% set check_adm = app.request.cookies.get('token') |split(' ') %}
+
     {% if check_adm|length > 2 %}
     {% if check_adm[2] == 'Admin' %}
     <li class="nav-item dropdown" style="background-color:#bf360c;">

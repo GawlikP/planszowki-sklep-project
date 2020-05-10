@@ -60,6 +60,16 @@ class UserRepository extends ServiceEntityRepository
       )->setParameter('permission', 2);
       return $query->getResult();
     }
+    public function findAllUsers(): array {
+      $entityManager = $this->getEntityManager();
+
+      $query = $entityManager->createQuery(
+        'SELECT n.id, n.Nick, n.email from App\Entity\User n WHERE
+        n.Permission = :permission ORDER BY n.Nick ASC
+        '
+      )->setParameter('permission', 1);
+      return $query->getResult();
+    }
 
 
     /*
