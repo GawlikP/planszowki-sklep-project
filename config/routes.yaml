@@ -114,7 +114,7 @@ app_admin_workers_edittry:
   controller: App\Controller\AdminController:workerEditTry
 app_admin_workers_delete:
   path: /admin/users/delete/{id}
-  controller: App\Controller\AdminControler::workerDelete
+  controller: App\Controller\AdminController::workerDelete
 
 
 
