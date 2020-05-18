@@ -9,6 +9,7 @@ $(document).ready(function(){
 })
 });
 </script>
+{% set check_adm = app.request.cookies.get('token') |split(' ') %}
 {{test}}
 
 {% if login_error %}
@@ -24,10 +25,15 @@ $(document).ready(function(){
     <p class="lead">Wiek od: {{product.age}} | Liczba graczy: {{product.player}} |</p>
     <hr class="my-4">
     <p> <b>Cena: {{product.price}}</b>  </p>
-    {% if app.request.cookies.get('token') == 'Admin Admin'  or app.request.cookies.get('token') == 'Dealer Dealer' %}<p> <a href="/product/delete/{{product.id}}" class="btn btn-danger" style="background-color: #230101"> usun </a>
-  {% endif %}<a href="/product/{{product.id}}" class="btn btn-success" style="background-color: #230101"> Zobacz </a>
-      {% if app.request.cookies.get('token') == 'Admin Admin'  or app.request.cookies.get('token') == 'Dealer Dealer' %} <a href="product/edit/{{product.id}}" class="btn btn-primary" stlye="background-color:#230101"> Edytuj</a>
-     {% endif %}</p>
+    <p>
+    <a href="/product/{{product.id}}" class="btn btn-success" style="background-color: #230101"> Zobacz </a>
+    {% if check_adm|length > 2 %}
+    {% if check_adm[2] == 'Admin' or check_adm[2] == 'WRK' %} <a href="/product/delete/{{product.id}}" class="btn btn-danger" style="background-color: #230101"> usun </a>
+  {% endif %}
+      {% if check_adm[2] == 'Admin' or check_adm[2] == 'WRK' %} <a href="product/edit/{{product.id}}" class="btn btn-primary" stlye="background-color:#230101"> Edytuj</a>
+    {% endif %}
+   {% endif %}
+   </p>
   </div>
 
 {% endfor %}
