@@ -103,7 +103,7 @@ class MainController extends AbstractController{
   #  $product->setCategory($category);
     $product->setDescrioption($description);
 
-    $entityManager->persist($product);
+    
 
     $entityManager->flush();
       return $this->redirectToRoute('app_main_controller');
@@ -305,7 +305,7 @@ class MainController extends AbstractController{
     return $this->render('admin/order.html.twig');
   }
 
-  
+
   public function adminUserDetails(){
     return $this->render('admin/user.html.twig');
   }
