@@ -5,6 +5,7 @@
         "php": "^7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "doctrine/annotations": "^1.10",
         "doctrine/doctrine-bundle": "^2.0",
         "doctrine/doctrine-migrations-bundle": "^2.1",
         "sensio/framework-extra-bundle": "^5.5",
@@ -19,6 +20,7 @@
         "symfony/monolog-bundle": "^3.5",
         "symfony/orm-pack": "^1.0",
         "symfony/twig-pack": "^1.0",
+        "symfony/validator": "5.0.*",
         "symfony/yaml": "5.0.*"
     },
     "require-dev": {
