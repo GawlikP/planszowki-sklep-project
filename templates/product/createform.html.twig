@@ -28,6 +28,11 @@
       </textarea>
     </div>
   </p>
+	{% set alert = app.session.get('error') %}	
+	{% if alert %}
+	<div class="alert-danger">{{alert}} </div>
+	{% endif %}
+
   <input type="submit" class="btn btn-success" value="Dodaj produkt" />
   </div>
 </form>

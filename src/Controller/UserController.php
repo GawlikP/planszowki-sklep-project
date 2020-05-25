@@ -11,10 +11,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Componeny\HttpFoundation\RedirectResponse;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+
 
 class UserController extends AbstractController{
 
-  public function tryRegister(RequestStack $requestStack, Request $request){
+  public function tryRegister(RequestStack $requestStack, Request $request, ValidatorInterface $validator){
 
       $request = $requestStack->getCurrentRequest();
 
@@ -31,7 +33,12 @@ class UserController extends AbstractController{
         $nuser->setPassword($password);
         $nuser->setPermission(1);
         $nuser->setEmail($email);
-
+	$errors = $validator->validate($nuser);
+	if(count($errors) > 0){
+		$session = $request->getSession();
+		$session->set('error',$errors);
+		return $this->redirectToRoute('app_login_register', $request->query->all());
+	}
         $entityManager->persist($nuser);
 
         $entityManager->flush();
@@ -45,7 +52,7 @@ class UserController extends AbstractController{
       return $this->redirectToRoute('app_login_register', $request->query->all());
 
   }
-  public function tryUserRegister(RequestStack $requestStack, Request $request){
+  public function tryUserRegister(RequestStack $requestStack, Request $request, ValidatorInterface $validator){
     $request = $requestStack->getCurrentRequest();
 
     #$id = $request->request->get('id');
@@ -61,9 +68,13 @@ class UserController extends AbstractController{
       $nuser->setPassword($password);
       $nuser->setPermission(1);
       $nuser->setEmail($email);
-
+      $errors = $validator->validate($nuser);
+      if(count($errors) > 0){
+	      $session = $request->getSession();
+	      $session->set('error',$errors);
+	      return $this->redirectToRoute('app_admin_users',$request->query->all());
+      }
       $entityManager->persist($nuser);
-
       $entityManager->flush();
       return $this->redirectToRoute('app_admin_users');
     }
@@ -74,7 +85,7 @@ class UserController extends AbstractController{
 
     return $this->redirectToRoute('app_admin_userses', $request->query->all());
   }
-  public function tryWorkerRegister(RequestStack $requestStack, Request $request){
+  public function tryWorkerRegister(RequestStack $requestStack, Request $request, ValidatorInterface $validator){
     $request = $requestStack->getCurrentRequest();
 
     #$id = $request->request->get('id');
@@ -90,9 +101,13 @@ class UserController extends AbstractController{
       $nuser->setPassword($password);
       $nuser->setPermission(2);
       $nuser->setEmail($email);
-
+      $errors = $validator->validate($nuser);
+      if(count($errors) > 0){
+	$session = $request->getSession();
+	$session->set('error',$errors);
+	return $this->redirectToRoute('app_admin_workers',$request->query->all());
+      }
       $entityManager->persist($nuser);
-
       $entityManager->flush();
       return $this->redirectToRoute('app_admin_workers');
     }

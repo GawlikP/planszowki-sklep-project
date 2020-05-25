@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Componeny\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Cookie;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class MainController extends AbstractController{
 
@@ -44,7 +45,7 @@ class MainController extends AbstractController{
     return $this->render('product/createform.html.twig');
   }
 
-  public function adProduct(RequestStack $requestStack){
+  public function adProduct(RequestStack $requestStack,ValidatorInterface $validator){
 
       $request = $requestStack->getCurrentRequest();
 
@@ -68,13 +69,19 @@ class MainController extends AbstractController{
       $product->setCompany($company_name);
     #  $product->setCategory($category);
       $product->setDescrioption($description);
-
+      $errors = $validator->validate($product);
+      if(count($errors) >0){
+	$session = $request->getSession();
+	$session->set('error', $errors);
+	return $this->redirectToRoute('app_product_create',$request->query->all());
+      }
       $entityManager->persist($product);
 
       $entityManager->flush();
         return $this->redirectToRoute('app_main_controller');
   }
-  public function productEditPerform(RequestStack $requestStack){
+  public function productEditPerform(RequestStack $requestStack, ValidatorInterface $validator){
+
     $request = $requestStack->getCurrentRequest();
 
     $id = $request->request->get('id');
@@ -102,8 +109,12 @@ class MainController extends AbstractController{
     $product->setCompany($company_name);
   #  $product->setCategory($category);
     $product->setDescrioption($description);
-
-    
+    $errors = $validator->validate($product);
+    if(count($errors) >0){
+	$session = $request->getSession();
+	$session->set('error', $errors);
+	return $this->redirectToRoute('app_product',$request->query->all());	
+    }
 
     $entityManager->flush();
       return $this->redirectToRoute('app_main_controller');
