@@ -51,7 +51,7 @@ class AdminController extends AbstractController{
       if(!$user){
         throw $this->createNotFoundException('No user found');
       }
-      return $this->render('admin/worker.html.twig', ['user' => $user]);
+      return $this->render('admin/user.html.twig', ['user' => $user]);
   }
   
   public function workerEditTry($id,RequestStack $requestStack, Request $request){
