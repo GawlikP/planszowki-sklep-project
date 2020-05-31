@@ -10,7 +10,7 @@ td {
 }
 </style>
 
-	{% if orders %}
+	
 <table class="table">
 <form>
 <div class="form-group">
@@ -40,17 +40,17 @@ td {
     </tr>
   </thead>
   <tbody>
-	{% for order in orders %} 
+	
     <tr>
       <th scope="row" class="thorange">1</th>
-      <td>{{order.id}}</td>
+      <td>4343</td>
       <td>InPost</td>
       <td></td>
       <td>Pay Pal</td>
       <td class="alert-info">W trakcie realizacji</td>
       <td>2020-01-01 20:20</td>
     </tr>
-	{% endfor %}
+
     <tr>
       <th scope="row" class="thorange">2</th>
       <td>TRDDSFRSAD</td>
@@ -71,7 +71,7 @@ td {
     </tr>
   </tbody>
 </table>
-{% endif %}
+
 
 
 {% endblock %}

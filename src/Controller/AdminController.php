@@ -94,13 +94,7 @@ class AdminController extends AbstractController{
     return $this->redirectToRoute('app_main_controller');
   }
   public function ordersList(RequestStack $requestStack,Request $request){
-	  $request = $requestStack->getCurrentRequest();
 	  
-	  $orders  = $this->getDoctrine()->getRepository(Order::class)->findAll();
-
-	  if(!$orders){
-		throw $this->createNotFoundException('No Orders Find');
-	  }
-	  return $this->render('admin/order.html.twig',[ 'orders' => $orders ]);
+	  return $this->render('admin/order.html.twig');
   }
 }
