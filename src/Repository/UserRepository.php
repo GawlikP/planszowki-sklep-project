@@ -44,7 +44,7 @@ class UserRepository extends ServiceEntityRepository
       $entityManager = $this->getEntityManager();
 
       $query = $entityManager->createQuery(
-        'SELECT n.Nick, n.Password, n.Permission from App\Entity\User n
+        'SELECT n.Nick, n.Password, n.Permission, n.Name, n.LastName from App\Entity\User n
         WHERE  n.Nick = :nick ORDER BY n.Nick ASC'
         )->setParameter('nick',$nick);
         return $query->getResult();
@@ -54,7 +54,7 @@ class UserRepository extends ServiceEntityRepository
       $entityManager = $this->getEntityManager();
 
       $query = $entityManager->createQuery(
-        'SELECT n.id, n.Nick, n.email from App\Entity\User n WHERE
+        'SELECT n.id, n.Nick, n.email, n.Name, n.LastName from App\Entity\User n WHERE
         n.Permission = :permission ORDER BY n.Nick ASC
         '
       )->setParameter('permission', 2);
@@ -64,7 +64,7 @@ class UserRepository extends ServiceEntityRepository
       $entityManager = $this->getEntityManager();
 
       $query = $entityManager->createQuery(
-        'SELECT n.id, n.Nick, n.email from App\Entity\User n WHERE
+        'SELECT n.id, n.Nick, n.email, n.Name, n.LastName from App\Entity\User n WHERE
         n.Permission = :permission ORDER BY n.Nick ASC
         '
       )->setParameter('permission', 1);

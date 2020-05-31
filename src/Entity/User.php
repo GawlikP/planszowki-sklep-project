@@ -30,6 +30,19 @@ class User
     private $Password;
 
     /**
+    * @ORM\Column(type="string", length=255)
+    * @Assert\NotBlank
+    **/
+    private $Name;
+
+    /**
+    * @ORM\Column(type="string", length=255)
+    * @Assert\NotBlank
+    **/
+
+    private $LastName;
+
+    /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
      */
@@ -43,11 +56,7 @@ class User
      */
     private $email;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Order", mappedBy="users")
-     * @ORM\JoinColumn(name="id", referencedColumnName="orders")
-     */
-    private $orders;
+    
 
     public function __construct()
     {
@@ -67,6 +76,28 @@ class User
     public function setNick(string $Nick): self
     {
         $this->Nick = $Nick;
+
+        return $this;
+    }
+    public function getName(): ?string
+    {
+        return $this->Name;
+    }
+
+    public function setName(string $Name): self
+    {
+        $this->Name = $Name;
+
+        return $this;
+    }
+    public function getLastName(): ?string
+    {
+        return $this->LastName;
+    }
+
+    public function setLastName(string $LastName): self
+    {
+        $this->LastName = $LastName;
 
         return $this;
     }

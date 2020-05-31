@@ -24,6 +24,8 @@ class UserController extends AbstractController{
       $login = $request->request->get('nick');
       $password = $request->request->get('haslo');
       $email = $request->request->get('email');
+      $name = $request->request->get('imie');
+      $last_name = $request->request->get('nazwisko');
 
       $entityManager = $this->getDoctrine()->getManager();
       $user = $this->getDoctrine()->getRepository(User::class)->findIfExist($login);
@@ -33,6 +35,8 @@ class UserController extends AbstractController{
         $nuser->setPassword($password);
         $nuser->setPermission(1);
         $nuser->setEmail($email);
+        $nuser->setName($name);
+        $nuser->setLastName($last_name);
 	$errors = $validator->validate($nuser);
 	if(count($errors) > 0){
 		$session = $request->getSession();
@@ -59,6 +63,8 @@ class UserController extends AbstractController{
     $login = $request->request->get('nick');
     $password = $request->request->get('haslo');
     $email = $request->request->get('email');
+    $name = $request->request->get('imie');
+    $last_name = $request->request->get('nazwisko');
 
     $entityManager = $this->getDoctrine()->getManager();
     $user = $this->getDoctrine()->getRepository(User::class)->findIfExist($login);
@@ -68,6 +74,8 @@ class UserController extends AbstractController{
       $nuser->setPassword($password);
       $nuser->setPermission(1);
       $nuser->setEmail($email);
+      $nuser->setName($name);
+      $nuser->setLastName($last_name);
       $errors = $validator->validate($nuser);
       if(count($errors) > 0){
 	      $session = $request->getSession();
@@ -92,6 +100,8 @@ class UserController extends AbstractController{
     $login = $request->request->get('nick');
     $password = $request->request->get('haslo');
     $email = $request->request->get('email');
+    $name = $request->request->get('imie');
+    $last_name = $request->request->get('nazwisko');
 
     $entityManager = $this->getDoctrine()->getManager();
     $user = $this->getDoctrine()->getRepository(User::class)->findIfExist($login);
@@ -101,6 +111,8 @@ class UserController extends AbstractController{
       $nuser->setPassword($password);
       $nuser->setPermission(2);
       $nuser->setEmail($email);
+      $nuser->setName($name);
+      $nuser->setLastName($last_name);
       $errors = $validator->validate($nuser);
       if(count($errors) > 0){
 	$session = $request->getSession();
@@ -129,6 +141,7 @@ class UserController extends AbstractController{
     $password = $request->request->get('password');
     $entityManager = $this->getDoctrine()->getManager();
     $user = $this->getDoctrine()->getRepository(User::class)->findIfExist($login);
+    
     if(!empty($user)){
       if ($password == $user[0]['Password']) {
         $context =  $this->renderView('login/login.html.twig',['login' => $login]);

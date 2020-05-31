@@ -28,6 +28,12 @@ class Order
     private $FinalizationDate;
 
     /**
+    * @ORM\Column(type="string",length=255, nullable=true)
+    **/
+
+    private $Name;
+
+    /**
      * @ORM\Column(type="string", length=1024)
      */
     private $Basket;
@@ -42,11 +48,7 @@ class Order
      */
     private $Status;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="orders")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $users;
+    
 
     public function getId(): ?int
     {
