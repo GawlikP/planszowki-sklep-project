@@ -39,6 +39,12 @@ class Order
     private $Basket;
 
     /**
+    * @ORM\Column(type="string", length=255)
+    **/
+
+    private $Payment;
+
+    /**
      * @ORM\Column(type="decimal", precision=12, scale=2)
      */
     private $Price;
