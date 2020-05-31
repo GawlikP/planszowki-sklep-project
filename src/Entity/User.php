@@ -14,7 +14,7 @@ class User
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer", name="id_user")
+     * @ORM\Column(type="integer", name="id")
      */
     private $id;
 
@@ -45,7 +45,7 @@ class User
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Order", mappedBy="users")
-     * @ORM\JoinColumn(name="id_order", referencedColumnName="orders")
+     * @ORM\JoinColumn(name="id", referencedColumnName="orders")
      */
     private $orders;
 

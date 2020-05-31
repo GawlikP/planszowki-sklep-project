@@ -93,7 +93,7 @@ app_basket_tryorder:
 
 app_admin_order:
   path: /admin/order
-  controller: App\Controller\MainController::adminOrders
+  controller: App\Controller\AdminController::ordersList
 
 app_admin_users:
   path: /admin/users
