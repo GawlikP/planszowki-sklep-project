@@ -100,8 +100,8 @@ app_admin_users:
   controller: App\Controller\AdminController::usersList
 
 app_admin_userdetails:
-  path: /admin/users/details
-  controller: App\Controller\MainController::adminUserDetails
+  path: /admin/users/details/{id}
+  controller: App\Controller\AdminController::userEdit
 
 app_admin_workers:
   path: /admin/workers

@@ -47,7 +47,7 @@ td {
       <td>{{user.LastName}}</td>
       <td>{{user.email}}</td>
       <td>2020-01-01 20:20</td>
-      <td><a href="{{path('app_admin_workers_delete',{id: user.id})}}" class="btn btn-danger">Usun</a></td>
+      <td><a href="{{path('app_admin_userdetails',{id: user.id})}}" class="btn btn-danger">Usun</a></td>
       <td><a href="{{path('app_admin_workers_edit',{id: user.id})}}" class="btn btn-primary">Edytuj</a></td>
       </tr>
     {% endfor %}

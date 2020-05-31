@@ -44,6 +44,16 @@ class AdminController extends AbstractController{
       }
       return $this->render('admin/worker.html.twig', ['worker' => $user]);
   }
+  public function userEdit($id,RequestStack $requestStack, Request $request){
+      $entityManager = $this->getDoctrine()->getRepository(User::class);
+      $user = $entityManager->find($id);
+
+      if(!$user){
+        throw $this->createNotFoundException('No user found');
+      }
+      return $this->render('admin/worker.html.twig', ['user' => $user]);
+  }
+  
   public function workerEditTry($id,RequestStack $requestStack, Request $request){
     $request = $requestStack->getCurrentRequest();
     $entityManager = $this->getDoctrine()->getRepository(User::class);
@@ -56,9 +66,13 @@ class AdminController extends AbstractController{
     $nick = $request->request->get('nick');
     $password = $request->request->get('haslo');
     $email = $request->request->get('email');
+    $name = $request->request->get('imie');
+    $last_name = $request->request->get('nazwisko');
     if($nick != "")$user->setNick($nick);
     if($password != "")$user->setPassword($password);
     if($email != "")$user->setEmail($email);
+    if($name != "")$user->setName($name);
+    if($last_name != "")$user->setLastName($last_name);
     $this->getDoctrine()->getManager()->persist($product);
     $this->getDoctrine()->getManager()->flush();
       return $this->redirectToRoute('app_admin_workers');

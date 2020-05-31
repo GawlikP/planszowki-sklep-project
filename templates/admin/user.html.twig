@@ -3,26 +3,23 @@
 {% block content %}
 
   <div class="jumbotron" style="width:100%; height:100%;background-color:#c63f17;color:white;">
-    <p>Imie: Test </p>
-    <p>Nazwisko: Test </p>
-    <p>Nick: Test </p>
+    <p>Imie: {{user.Name}} </p>
+    <p>Nazwisko: {{user.LastName}} </p>
+    <p>Nick: {{user.Nick}} </p>
     <p>Data założenia konta: 2020-02-02 </p>
     <p>Typ konta: Klient</p>
     <form>
+    <form method="post" action="/admin/users/edit/try/{{worker.id}}">
     <div class="form-group">
-      <input type="submit" class="btn btn-danger" value="delete" />
+      <input type="text" name="nick" placeholder="Zmien nick" class="form-control" pattern="[A-Z]{1}[a-z]+" />
+      <input type="password" name="password" placeholder="Zmien hasło" class="form-control"  />
+      <input type="email" name="email" placeholder="Zmien email" class="form-control" />
+      <input type="text" required class="form-control" name="imie" pattern="[A-Z]{1}[a-z]+" placeholder="Imię"/>
+      <input type="text" required class="form-control" name="nazwisko" pattern="[A-Z]{1}[a-z,ś,ó,ż,ź,ć]+" placeholder="Nazwisko"/>
+      <input type="submit" class="btn btn-info" value="Edytuj" />
     </div>
     </form>
-    <form>
-    <div class="form-group">
-      <input type="submit" class="btn btn-info" value="Edit" />
-    </div>
-    </form>
-    <form>
-    <div class="form-group">
-      <input type="submit" class="btn btn-warning" value="Block" />
-    </div>
-    </form>
+    <a href="/admin/users/delete/{id}" class="btn btn-danger">Usuń</a>
   </div>
 
 {% endblock %}
